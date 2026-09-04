@@ -1,0 +1,582 @@
+<title>2027 New Grad Target Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+
+<style>
+:root{
+  --bg:#F2F4F6; --surface:#FFFFFF; --raise:#F8FAFB;
+  --ink:#141A21; --body:#3A434F; --muted:#5E6875; --faint:#8B95A2;
+  --line:#DCE1E7; --line-soft:#E8ECF0;
+  --accent:#9E5A08; --accent-bg:#F7E9D5;
+  --live:#0A6B4D; --live-bg:#D9EDE5;
+  --window:#8A4A02; --window-bg:#FAE9D2;
+  --watch:#47525F; --watch-bg:#E4E9EE;
+  --warn:#8C3A12; --warn-bg:#FBE3D8;
+  --on-accent:#FFFFFF;
+  --shadow:0 1px 2px rgba(20,26,33,.05),0 3px 12px rgba(20,26,33,.05);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0C1116; --surface:#141A21; --raise:#1A222B;
+    --ink:#E7ECF1; --body:#C0C9D3; --muted:#8B96A4; --faint:#69737F;
+    --line:#222B36; --line-soft:#1B222B;
+    --accent:#E2A048; --accent-bg:#2E2213;
+    --live:#3FC493; --live-bg:#10281F;
+    --window:#E8A343; --window-bg:#2E2213;
+    --watch:#95A0AE; --watch-bg:#1E252E;
+    --warn:#F0A183; --warn-bg:#33190F;
+  --on-accent:#17100A;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 3px 14px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0C1116; --surface:#141A21; --raise:#1A222B;
+  --ink:#E7ECF1; --body:#C0C9D3; --muted:#8B96A4; --faint:#69737F;
+  --line:#222B36; --line-soft:#1B222B;
+  --accent:#E2A048; --accent-bg:#2E2213;
+  --live:#3FC493; --live-bg:#10281F;
+  --window:#E8A343; --window-bg:#2E2213;
+  --watch:#95A0AE; --watch-bg:#1E252E;
+  --warn:#F0A183; --warn-bg:#33190F;
+  --on-accent:#17100A;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 3px 14px rgba(0,0,0,.28);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--body);
+  font-family:"Source Sans 3",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1120px; margin:0 auto; padding:0 22px}
+h1,h2,h3{font-family:Archivo,ui-sans-serif,system-ui,sans-serif; color:var(--ink); text-wrap:balance; margin:0}
+.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace; font-variant-numeric:tabular-nums}
+
+/* ---------- masthead ---------- */
+header{border-bottom:1px solid var(--line); background:var(--surface)}
+.mast{display:flex; flex-direction:column; gap:18px; padding:34px 0 26px}
+.eyebrow{
+  font-family:"JetBrains Mono",monospace; font-size:11.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent); font-weight:600;
+}
+h1{font-size:clamp(29px,4.4vw,44px); font-weight:800; letter-spacing:-.022em; line-height:1.08}
+.lede{font-size:17.5px; color:var(--body); max-width:66ch; margin:0}
+.lede b{color:var(--ink); font-weight:600}
+
+.stats{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(128px,1fr)); gap:1px;
+  background:var(--line); border:1px solid var(--line); border-radius:9px; overflow:hidden;
+}
+.stat{background:var(--surface); padding:13px 15px}
+.stat .v{font-family:"JetBrains Mono",monospace; font-size:23px; font-weight:600; color:var(--ink); font-variant-numeric:tabular-nums}
+.stat .k{font-size:12.5px; color:var(--muted); margin-top:1px}
+
+/* ---------- findings ---------- */
+.findings{padding:30px 0 6px; display:grid; gap:13px}
+.find{
+  display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:start;
+  background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--accent);
+  border-radius:8px; padding:15px 17px; box-shadow:var(--shadow);
+}
+.find .num{
+  font-family:"JetBrains Mono",monospace; font-size:12px; font-weight:600;
+  color:var(--accent); padding-top:3px;
+}
+.find h3{font-size:16.5px; font-weight:700; letter-spacing:-.01em; margin-bottom:3px}
+.find p{margin:0; font-size:15px; color:var(--body)}
+
+/* ---------- controls ---------- */
+.controls{
+  position:sticky; top:0; z-index:20; background:var(--bg);
+  padding:16px 0 12px; border-bottom:1px solid var(--line); margin-top:26px;
+  display:grid; gap:9px;
+}
+.ctl-row{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+button.f{
+  font:inherit; font-size:13.5px; font-weight:600; cursor:pointer;
+  background:var(--surface); color:var(--body);
+  border:1px solid var(--line); border-radius:999px; padding:6px 13px;
+  transition:background .13s,border-color .13s,color .13s;
+}
+button.f:hover{border-color:var(--accent); color:var(--ink)}
+button.f[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:var(--on-accent)}
+button.f:focus-visible, input:focus-visible, a:focus-visible, button:focus-visible, textarea:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+input[type="search"]{
+  font:inherit; font-size:14px; flex:1 1 190px; min-width:150px;
+  background:var(--surface); color:var(--ink);
+  border:1px solid var(--line); border-radius:8px; padding:6px 11px;
+}
+.count{font-family:"JetBrains Mono",monospace; font-size:12.5px; color:var(--muted); margin-left:auto; white-space:nowrap}
+
+/* ---------- selection bar ---------- */
+.selbar{
+  display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+  background:var(--raise); border:1px solid var(--line); border-radius:8px;
+  padding:8px 11px;
+}
+.selbar[data-active="true"]{border-color:var(--accent); background:var(--accent-bg)}
+.selcount{
+  font-family:"JetBrains Mono",monospace; font-size:13px; font-weight:600; color:var(--ink);
+  font-variant-numeric:tabular-nums; white-space:nowrap;
+}
+.selbar .hint{font-size:13px; color:var(--muted)}
+button.act{
+  font:inherit; font-size:13px; font-weight:600; cursor:pointer;
+  background:var(--surface); color:var(--body);
+  border:1px solid var(--line); border-radius:7px; padding:5px 11px;
+  transition:background .13s,border-color .13s,color .13s;
+}
+button.act:hover:not(:disabled){border-color:var(--accent); color:var(--ink)}
+button.act:disabled{opacity:.45; cursor:not-allowed}
+button.act.primary{background:var(--accent); border-color:var(--accent); color:var(--on-accent)}
+.selbar .spacer{margin-left:auto}
+
+.copybox{
+  display:none; width:100%; min-height:150px; resize:vertical;
+  font-family:"JetBrains Mono",monospace; font-size:12.5px; line-height:1.5;
+  background:var(--surface); color:var(--ink);
+  border:1px solid var(--accent); border-radius:8px; padding:11px;
+}
+.copybox[data-open="true"]{display:block}
+
+/* ---------- list ---------- */
+.list{display:grid; gap:9px; padding:18px 0 8px}
+.row{
+  display:grid; grid-template-columns:22px 40px 1fr auto; gap:13px; align-items:start;
+  background:var(--surface); border:1px solid var(--line); border-radius:9px;
+  padding:14px 16px 14px 18px; box-shadow:var(--shadow); position:relative; overflow:hidden;
+}
+.row::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--watch)}
+.row[data-t="window"]::before{background:var(--window)}
+.row[data-t="live"]::before{background:var(--live)}
+.row[data-picked="true"]{border-color:var(--accent)}
+.pick{width:16px; height:16px; margin:4px 0 0; cursor:pointer; accent-color:var(--accent)}
+.rank{
+  font-family:"JetBrains Mono",monospace; font-size:13px; font-weight:600;
+  color:var(--faint); padding-top:2px; font-variant-numeric:tabular-nums;
+}
+.co{font-family:Archivo,sans-serif; font-size:17px; font-weight:700; color:var(--ink); letter-spacing:-.012em}
+.co a{color:inherit; text-decoration:none; border-bottom:1.5px solid var(--accent-bg)}
+.co a:hover{border-bottom-color:var(--accent)}
+.role{font-size:14.5px; color:var(--muted); margin-top:1px}
+.why{font-size:13.5px; color:var(--faint); margin-top:6px; line-height:1.5}
+.chips{display:flex; flex-wrap:wrap; gap:5px; margin-top:8px}
+.chip{
+  font-family:"JetBrains Mono",monospace; font-size:10.5px; font-weight:600;
+  letter-spacing:.06em; text-transform:uppercase;
+  padding:2.5px 7px; border-radius:4px; background:var(--watch-bg); color:var(--watch);
+}
+.chip.chi{background:var(--accent-bg); color:var(--accent)}
+.chip.rem{background:var(--live-bg); color:var(--live)}
+.chip.ai{background:var(--window-bg); color:var(--window)}
+.chip.soft{background:var(--warn-bg); color:var(--warn)}
+.chip.new48{background:var(--live); color:var(--on-accent); letter-spacing:.08em}
+.meta{text-align:right; display:grid; gap:3px; justify-items:end; min-width:96px}
+.pay{font-family:"JetBrains Mono",monospace; font-size:15.5px; font-weight:600; color:var(--ink); font-variant-numeric:tabular-nums}
+.date{font-family:"JetBrains Mono",monospace; font-size:12px; color:var(--faint)}
+.status{
+  font-family:"JetBrains Mono",monospace; font-size:10px; font-weight:600; letter-spacing:.07em;
+  text-transform:uppercase; padding:2.5px 7px; border-radius:4px; margin-top:3px;
+  background:var(--watch-bg); color:var(--watch);
+}
+.row[data-t="window"] .status{background:var(--window-bg); color:var(--window)}
+.row[data-t="live"] .status{background:var(--live-bg); color:var(--live)}
+
+.empty{padding:34px 4px; color:var(--muted); font-size:15px}
+
+.noprog{margin:26px 0 0; background:var(--surface); border:1px solid var(--line); border-radius:9px; padding:19px 21px}
+.noprog h2{font-size:17px; font-weight:700; margin-bottom:6px}
+.np-lede{font-size:14.5px; color:var(--muted); margin:0 0 13px; max-width:70ch}
+.np-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(228px,1fr)); gap:9px}
+.np{border:1px solid var(--line-soft); border-radius:7px; padding:9px 11px; background:var(--raise)}
+.np b{display:block; font-family:Archivo,sans-serif; font-size:14px; color:var(--ink); font-weight:700}
+.np span{font-size:12.5px; color:var(--faint); line-height:1.45}
+
+/* ---------- caveats + footer ---------- */
+.caveats{
+  margin:26px 0 0; background:var(--raise); border:1px solid var(--line);
+  border-radius:9px; padding:19px 21px;
+}
+.caveats h2{font-size:17px; font-weight:700; margin-bottom:9px}
+.caveats ul{margin:0; padding-left:19px; display:grid; gap:7px}
+.caveats li{font-size:14.5px; color:var(--body)}
+footer{
+  border-top:1px solid var(--line); margin-top:30px; padding:18px 0 40px;
+  font-size:13px; color:var(--faint);
+}
+footer .mono{font-size:12px}
+
+@media (max-width:660px){
+  .row{grid-template-columns:22px 1fr}
+  .rank{display:none}
+  .meta{grid-column:2; justify-items:start; text-align:left; margin-top:8px}
+  .find{grid-template-columns:1fr}
+  .find .num{padding-top:0}
+  .selbar .spacer{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important; animation:none !important}}
+</style>
+
+<header>
+  <div class="wrap mast">
+    <div class="eyebrow">Verified 27 Aug 2026 &middot; Brett Anderson &middot; B.S. CS, May 2027</div>
+    <h1>2027 New Grad Target Board</h1>
+    <p class="lede">Three hard filters, no exceptions: <b>Chicago or remote</b>, <b>posted within the last two weeks</b>, and <b>no published band below $95k</b>. Everything here was pulled from the employer's own applicant-tracking system, not an aggregator &mdash; dates are their own <span class="mono">first_published</span> field. <b>63 companies</b> clear all three.</p>
+    <div class="stats">
+      <div class="stat"><div class="v">63</div><div class="k">companies</div></div>
+      <div class="stat"><div class="v">21</div><div class="k">hiring in Chicago</div></div>
+      <div class="stat"><div class="v">43</div><div class="k">remote-eligible</div></div>
+      <div class="stat"><div class="v">24</div><div class="k">AI / automation</div></div>
+      <div class="stat"><div class="v">38</div><div class="k">opened since Aug 25</div></div>
+      <div class="stat"><div class="v mono">$500k</div><div class="k">top posted base</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="findings">
+    <article class="find"><div class="num">01</div><div><h3>Three coverage bugs found and fixed &mdash; the board was missing most of the market</h3><p>Brett noticed almost every application he had submitted was on Greenhouse. That was right, and the cause was worse than a Greenhouse bias. <b>The scanner pre-filtered every platform with a rule that required an explicit <em>new grad</em> signal in the title or body.</b> Measured against a corpus collected without it, that filter discards <b>87% of eligible postings</b> &mdash; 2,440 of 2,789, including 343 plain <em>Software Engineer</em> reqs, plus Full Stack, Data, SRE, Platform, ML and Forward Deployed Engineer. Every board scanned before today was missing them.</p></div></article>
+<article class="find"><div class="num">02</div><div><h3>Workday was 2.4% of the scan and is the largest ATS in the market</h3><p>In a 19,178-row sample of live postings, <b>Workday appears 8,621 times against Greenhouse's 1,533</b> &mdash; yet the original scan covered 336 Greenhouse companies and only 22 on Workday. The cause was token discovery: Greenhouse needs one guessable slug, Workday needs a tenant, a numbered pod and an arbitrary site path, and its job list is a POST. <b>1,314 valid Workday board addresses were already sitting in harvested data and had never been read back out.</b> Re-scanning them returned <b>2,789 eligible postings across 466 companies</b>, against 59 across 22 before.</p></div></article>
+<article class="find"><div class="num">03</div><div><h3>Every Illinois location counted as Chicago</h3><p>The geography rule matched <span class="mono">illinois</span> and a bare <span class="mono">IL</span>, so Peoria, Springfield, Rockford, Champaign and Shiloh &mdash; a St. Louis suburb 280 miles away &mdash; all flagged as Chicago, and so did Normal. It is now a 51-term Chicago-metro list verified against 14 cases. The Chicago column on the previous board was inflated by the width of the whole state.</p></div></article>
+<article class="find"><div class="num">04</div><div><h3>Salary bands were being thrown away before they could be read</h3><p>Descriptions were truncated to 1,500 characters at collection time, and pay bands sit at the <em>end</em> of a posting. Only Ashby survived, because it returns structured compensation as a separate field. Extracting pay from the full text before truncating recovered a band on <b>53 of 120</b> re-scanned postings that had shown none.</p></div></article>
+<article class="find"><div class="num">05</div><div><h3>What the gates cost, and where the board now stands</h3><p>Across <b>10,913 postings</b> from <b>3,680 boards</b>, 9,702 cleared eligibility. The two-week freshness rule removed 7,968 of them &mdash; by far the largest single cut &mdash; and the remote-or-Chicago rule removed 1,617 more. <b>63 companies</b> survive everything. A dash in the pay column means the employer published no band, which is common on Workday and is not the same as paying badly; those rows are kept.</p></div></article>
+  </section>
+
+  <div class="controls">
+    <div class="ctl-row">
+      <button class="f" data-f="all" aria-pressed="true">All</button>
+      <button class="f" data-f="new48" aria-pressed="false">New &lt;48h</button>
+      <button class="f" data-f="chi" aria-pressed="false">Chicago</button>
+      <button class="f" data-f="rem" aria-pressed="false">Remote</button>
+      <button class="f" data-f="ai" aria-pressed="false">AI / automation</button>
+      <button class="f" data-f="window" aria-pressed="false">Opened since Aug 25</button>
+      <button class="f" data-f="pay" aria-pressed="false">$150k+</button>
+      <button class="f" data-f="picked" aria-pressed="false">Selected</button>
+      <input type="search" id="q" placeholder="Search company or role" aria-label="Search company or role">
+      <span class="count" id="count"></span>
+    </div>
+
+    <div class="selbar" id="selbar" data-active="false">
+      <span class="selcount" id="selcount">0 selected</span>
+      <span class="hint" id="selhint">Tick the companies you want, then copy the list and paste it back into Claude.</span>
+      <span class="spacer"></span>
+      <button class="act" id="selvisible" type="button">Select all shown</button>
+      <button class="act" id="selclear" type="button" disabled>Clear</button>
+      <button class="act primary" id="selcopy" type="button" disabled>Copy list</button>
+    </div>
+    <textarea class="copybox" id="copybox" data-open="false" readonly aria-label="Selected companies, ready to copy"></textarea>
+  </div>
+
+  <div class="list" id="list"></div>
+
+  <section class="noprog">
+    <h2>Confirmed to have no 2027 new-grad track</h2>
+    <p class="np-lede">Checked directly against each company's own job board and found to have no new-grad, university, or early-career engineering req &mdash; and in most cases no non-senior engineering opening at all. Skip these rather than spending applications on them.</p>
+    <div class="np-grid"><div class="np"><b>1Password</b><span>1Password is genuinely remote (their standard location string is &#x27;Remote (United States | Canada)&#x27;), so the remote part checks out - but they</span></div>
+<div class="np"><b>ActiveCampaign</b><span>Chicago HQ but engineering IC hiring has been moved to their Krak&#243;w center; the only US engineering opening is Senior AI Engineer. There is no US new-</span></div>
+<div class="np"><b>Aha!</b><span>- the door is shut entirely at the moment, not just for new grads. Aha! is 100% remote, self-funded and profitable, and when it does hire engin</span></div>
+<div class="np"><b>Amount</b><span>Three open reqs company-wide. The Production Support Engineer roles are Chicago and entry-accessible, but they are support/on-call rather than the bac</span></div>
+<div class="np"><b>Anthropic</b><span>Anthropic hires new grads only through its regular SWE reqs, which are experienced-hire framed. No cohort, no dated opening. Best play is applying to</span></div>
+<div class="np"><b>Anyscale</b><span>Anyscale is running a very small hiring footprint (20 open reqs total). No campus program of any kind.</span></div>
+<div class="np"><b>Anysphere / Cursor</b><span>Cursor hires exclusively into experienced SWE reqs. No cohort program, no university page, no dated opening.</span></div>
+<div class="np"><b>Apple</b><span>Apple deliberately does not run a year-tagged new-grad SWE program the way Google/Meta/Amazon do. New grads apply to ordinary individual-contributor r</span></div>
+<div class="np"><b>Applied Intuition / Anysphere (Cursor)</b><span>Cursor hires experienced engineers only right now; no university program exists. Company-owned board is cursor.com/careers which routes to jobs.ashbyh</span></div>
+<div class="np"><b>Automation Anywhere</b><span>35 total open roles globally is a company in a hard hiring freeze, with essentially no US engineering hiring at all. There is no new-grad program to w</span></div>
+<div class="np"><b>Automattic</b><span>new-grad program - but Automattic is the one &#x27;no program&#x27; company still worth a shot. It is fully remote worldwide and it hires on a paid trial</span></div>
+<div class="np"><b>Avant</b><span>Aggregator listings for Avant SWE roles (Built In, ZipRecruiter) are stale &#8212; the company&#x27;s own Workday shows nine open reqs and none are engineering.</span></div>
+<div class="np"><b>Baseten</b><span>Several Baseten engineering reqs are flagged isRemote=true, so Baseten is worth watching for remote backend roles generally - just not for a new-grad</span></div>
+<div class="np"><b>Bridgewater</b><span>Bridgewater&#x27;s only 2027 campus req is the Investment Associate Intern (posted 2026-01-28) &#8212; no technology equivalent. Their Technology Careers page de</span></div>
+<div class="np"><b>Cameo</b><span>Cameo is down to a single open requisition company-wide and it is Staff Backend &#8212; many years beyond a new grad. There is no 2027 pipeline. Remove from</span></div>
+<div class="np"><b>Cars Commerce</b><span>Chicago HQ and they do post remote US reqs, but the entire open engineering ladder starts at Senior. No early-career pipeline visible. Deprioritize.</span></div>
+<div class="np"><b>Celonis</b><span>Celonis is a process-mining/process-intelligence company - genuinely on-theme for AI automation - and it clearly runs a structured early-career machin</span></div>
+<div class="np"><b>Chainguard</b><span>Chainguard is remote-friendly and the Libraries Platform work is squarely backend, but the posted floor is 3-5 years. The &#x27;General Internship</span></div>
+<div class="np"><b>Cloudflare</b><span>Cloudflare&#x27;s university program is active right now (Fall 2026 interns are live) but it is an intern program, and Cloudflare has moved firmly</span></div>
+<div class="np"><b>Cohere</b><span>Cohere&#x27;s student pipeline is Canadian co-op/internship only and feeds their Toronto office. Not a fit for a US full-time 2027 new grad.</span></div>
+<div class="np"><b>CoreWeave</b><span>Large board, no campus track. CoreWeave is hiring heavily but exclusively experienced. Monitor the Greenhouse board rather than waiting on a cohort an</span></div>
+<div class="np"><b>Coyote Logistics</b><span>Dead entry &#8212; the Chicago Coyote engineering org was absorbed into RXO (Charlotte, NC HQ). If he wants this pipeline at all it is RXO&#x27;s Workday, not Co</span></div>
+<div class="np"><b>Decagon</b><span>Sizeable board (137 reqs) with no campus track at all. Engineering reqs are experienced-hire. The Founder&#x27;s Office role sometimes skews junior but is</span></div>
+<div class="np"><b>Discover Financial</b><span>Discover no longer exists as a standalone new-grad employer &#8212; the requisition system, the students-and-grads events, and the Workday tenant are all Ca</span></div>
+<div class="np"><b>Doximity</b><span>Doximity genuinely does hire remote-US (&#x27;San Francisco, CA or Remote (U.S.)&#x27; is their standard location string), so the remote part is real -</span></div>
+<div class="np"><b>Dropbox</b><span>Dropbox&#x27;s &#x27;Virtual First&#x27; policy is genuine and their US reqs really do say &#x27;Remote - US&#x27;, so the remote framing is not marketing. The problem</span></div>
+<div class="np"><b>DuckDuckGo</b><span>Fully remote, yes - but DuckDuckGo has stated in its own words that it has no internship program, has no new-grad track, and gates every engin</span></div>
+<div class="np"><b>Eagle Seven</b><span>Chicago (550 W Jackson) but no campus pipeline &#8212; the only software req is senior, and the junior engineering req is FPGA (hardware, ruled out). No dat</span></div>
+<div class="np"><b>Elastic</b><span>Elastic is distributed-first and hires remote across the US, and with 334 open reqs they are clearly hiring at volume - which makes the absenc</span></div>
+<div class="np"><b>ElevenLabs</b><span>Large board (249 reqs) with zero campus presence. ElevenLabs hires remote-friendly across the US, so their general SWE reqs are worth watching, but th</span></div>
+<div class="np"><b>Figure</b><span>Figure&#x27;s software reqs all target experienced robotics/CV engineers in San Jose / Sunnyvale. No university program.</span></div>
+<div class="np"><b>Fireworks AI</b><span>Fireworks demonstrably will hire early-career talent (they run an APM req), but the only such opening is product management, which is off-target. No S</span></div>
+<div class="np"><b>Flow Traders US</b><span>Flow Traders runs a US graduate program for TRADING only; their US engineering hiring is senior-level (5+ yrs). They do have a Chicago office with two</span></div>
+<div class="np"><b>FourKites</b><span>Chicago HQ supply-chain AI company, but with 15 open reqs total and junior engineering located in Chennai, there is no US new-grad path. Deprioritize.</span></div>
+<div class="np"><b>G2</b><span>Chicago HQ but the junior engineering ladder is entirely in Bengaluru; US reqs open at Senior. No 2027 new-grad program. Deprioritize.</span></div>
+<div class="np"><b>Geneva Trading</b><span>Geneva is a smaller Chicago/Dublin shop that hires experienced tech only; the one developer-titled opening is front-end, which he ruled out. No campus</span></div>
+<div class="np"><b>Glean</b><span>Glean has hired new grads into standard SWE reqs in past cycles but runs no dated cohort program, so there is nothing to watch for a specific date. Mo</span></div>
+<div class="np"><b>Grafana Labs</b><span>and this one is worth him internalizing. Grafana is remote-first and shows up on every &#x27;remote companies&#x27; list, which is exactly why it wastes</span></div>
+<div class="np"><b>Groq</b><span>Groq has taken down its entire public job board - not just new-grad reqs. Following recent leadership turnover the company is running a talent-network</span></div>
+<div class="np"><b>Group One Trading</b><span>Group One does run a &quot;Software Developer Intern&quot; req seasonally (a stale $45&#8211;$50/hr Chicago listing at group1.applicantpro.com/jobs/3854665 surfaced i</span></div>
+<div class="np"><b>Groupon</b><span>Groupon&#x27;s engineering org is now mostly Europe/India (hence the EU Greenhouse board) with 17 open reqs company-wide. No campus program. Deprioritize.</span></div>
+<div class="np"><b>Grubhub</b><span>Post-acquisition Grubhub is running a very small req load (7 total engineering postings company-wide, several in Boston/NY, not Chicago). No campus pi</span></div>
+<div class="np"><b>Harvey</b><span>Harvey&#x27;s only campus footprint is legal-side. Engineering reqs are all experienced-hire.</span></div>
+<div class="np"><b>HashiCorp</b><span>There is no HashiCorp-branded 2027 new-grad SWE application to track. If he wants Terraform/Vault/Consul work he must apply through IBM&#x27;s entry-level</span></div>
+<div class="np"><b>Headlands Technologies</b><span>No 2027 SWE class to apply to, but the standing C++ Software Developer req is new-grad-eligible on its face (degree preferred, experience only &quot;in lie</span></div>
+<div class="np"><b>Kin Insurance</b><span>Fully-remote-friendly and backend-heavy, which fits his profile, but the ladder starts at Senior and the back-end req has been open since Oct 2025 (li</span></div>
+<div class="np"><b>Linear</b><span>Linear is a deliberately small, senior-only engineering org. Not a realistic 2027 new-grad target under any timeline.</span></div>
+<div class="np"><b>LinkedIn</b><span>LOWEST-CONFIDENCE OF THE THREE and I would deprioritize it. LinkedIn does not run a publicly-posted, cohort-style new-grad SWE program the way Microso</span></div>
+<div class="np"><b>M1 Finance</b><span>Two open reqs company-wide, both compliance/ops. No engineering hiring at all right now. Deprioritize; the SmartRecruiters board is cheap to re-check</span></div>
+<div class="np"><b>Marquette Partners</b><span>No ATS, no postings, no campus program &#8212; hiring is resume-by-email and trader-focused. Nothing to watch. Skip unless he wants to cold-email info@mqpll</span></div>
+<div class="np"><b>Mercor</b><span>Mercor explicitly welcomes new grads, but only into an ops/coordination req. Their engineering postings (e.g. &quot;Infrastructure Engineer&quot;) are experienc</span></div>
+<div class="np"><b>Millennium</b><span>Millennium runs no full-time 2027 new-grad SWE requisition &#8212; the campus tech pipeline is intern-to-full-time. Their main board (mlp.eightfold.ai) does</span></div>
+<div class="np"><b>Mistral AI US</b><span>Mistral does run a new-grad SWE track, just not in the US. Their US entity is small and experienced-hire only. If the candidate is open to Paris the l</span></div>
+<div class="np"><b>Modal</b><span>Small team, no cohort hiring. modal.com/careers is a thin redirect to the Ashby board, which is the source of truth.</span></div>
+<div class="np"><b>Mozilla</b><span>Mozilla is fully remote with explicit &#x27;Remote US&#x27; location strings and is hiring at reasonable volume (89 reqs), so the remote part is real -</span></div>
+<div class="np"><b>n8n</b><span>36-req board, Berlin-centric. No university or new-grad track.</span></div>
+<div class="np"><b>Netflix</b><span>Netflix structurally does not hire new grads at scale - its lowest engineering rung is above typical new-grad level and it pays a single top-of-market</span></div>
+<div class="np"><b>Okta</b><span>Okta has a sizable board (349 reqs) yet not one early-career engineering role, which suggests a deliberate experienced-hire posture rather than a cycl</span></div>
+<div class="np"><b>PDT Partners</b><span>PDT is a small shop that hires new grads almost entirely through internship conversion. If he wants a shot, the general New York &quot;Software Engineer&quot; r</span></div>
+<div class="np"><b>Pega</b><span>This is a definitive negative, not an absence of evidence - Pega tells applicants in its own words not to apply more than two months before their star</span></div>
+<div class="np"><b>Pegasystems (Pega)</b><span>Structurally a poor fit for a May-2027 grad shopping in Sept 2026: Pega&#x27;s stated policy is immediate-hire only, so a 2027 start would not be posted un</span></div>
+<div class="np"><b>Percona</b><span>Percona is fully remote and does hire in the Americas, but every Americas opening is a database support engineer role requiring 2+ years of ha</span></div>
+<div class="np"><b>Perplexity</b><span>No cohort program and no university page. Perplexity hires new grads only opportunistically into MTS reqs.</span></div>
+<div class="np"><b>Physical Intelligence</b><span>33-req board, research-heavy, San Francisco. No early-career track. Unlikely to open one before Sept 20.</span></div>
+<div class="np"><b>project44</b><span>Chicago HQ logistics-tech with real backend scale, but junior engineering headcount is in Bangalore and Krak&#243;w; US reqs open at Senior. No 2027 new-gr</span></div>
+<div class="np"><b>Realm</b><span>There is real ambiguity about which &#x27;Realm&#x27; was intended - the mobile-database Realm was absorbed into MongoDB years ago and no longer exists</span></div>
+<div class="np"><b>Relativity</b><span>Chicago legal-AI company, real backend/AI platform work (aiR Services = shared backend platform). No university-recruiting pipeline exists in their AT</span></div>
+<div class="np"><b>Retool</b><span>Retool publishes no posting dates at all, which is why opened_date is blank rather than guessed.</span></div>
+<div class="np"><b>Scale AI</b><span>Scale AI&#x27;s engineering reqs are all mid-to-senior (Software Engineer / Senior / Staff, SF-NY-London-DC). The ICML 2026 University Recruiting posting i</span></div>
+<div class="np"><b>ShipBob</b><span>Engineering is being hired in India; the US side is warehouse operations plus two senior &#x27;AI Product Builder&#x27; roles. No new-grad path. Deprioritize.</span></div>
+<div class="np"><b>Sierra</b><span>LEADING INDICATOR WORTH TRACKING: Sierra posted a dedicated University Recruiter role on 2026-08-11, which is normally the precursor to standing up a</span></div>
+<div class="np"><b>Skild AI</b><span>Watch https://www.skild.ai/career. Locations are San Mateo, Pittsburgh and Bengaluru - no Chicago, no remote engineering.</span></div>
+<div class="np"><b>Sourcegraph</b><span>Sourcegraph is fully remote and helpfully publishes levels right in the job title, which makes the answer unambiguous: IC3 is roughly a mid-le</span></div>
+<div class="np"><b>SpotHero</b><span>Small Chicago company with 11 open reqs and zero IC engineering openings. No campus pipeline. Deprioritize, though the board is company-hosted and che</span></div>
+<div class="np"><b>Sprout Social</b><span>Sprout is in a hiring trough &#8212; 13 open reqs total across the whole company and zero IC engineering roles. Their careers page is company-owned (sprouts</span></div>
+<div class="np"><b>Temporal</b><span>Temporal is a small (~400 person) durable-execution/workflow-orchestration company that hires senior-only - a common pattern for infrastructure startu</span></div>
+<div class="np"><b>Tempus AI</b><span>Excellent fit on substance &#8212; Chicago HQ, genuinely AI/ML-heavy (GenAI Product Builder, AI Scientist reqs live), remote-California SWE II reqs also ope</span></div>
+<div class="np"><b>Tines</b><span>Tines is a security-automation company (strong thematic fit for AI-automation) but with only 20 open reqs company-wide it is far too small to run a st</span></div>
+<div class="np"><b>Toptal</b><span>and a structural warning. Toptal&#x27;s core business is a freelance marketplace, so most &#x27;Toptal engineering jobs&#x27; he will see on aggregators are</span></div>
+<div class="np"><b>Tower Research Capital</b><span>Tower DOES hire campus in Chicago &#8212; but for 2027 they posted a full-time req only for Trader/Researcher, and the developer track is intern-only. Becau</span></div>
+<div class="np"><b>Twilio</b><span>- and this is the most important trap on the list. Twilio has roughly a dozen &#x27;Software Engineer (L2)&#x27; and &#x27;Software Engineer L3&#x27; reqs marked R</span></div>
+<div class="np"><b>UiPath</b><span>Despite being the marquee RPA/AI-automation company and therefore an obvious thematic fit, UiPath does not run a US new-grad SWE pipeline - its junior</span></div>
+<div class="np"><b>Vatic Labs</b><span>Fails on location as well as program &#8212; Vatic is a New York firm. Their board is largely stale (several reqs 2+ years old). Skip.</span></div>
+<div class="np"><b>Verition</b><span>No full-time new-grad SWE program. Their 2027 pipeline is internship-only and converts. The &quot;2027 Technology Internship (US)&quot; DOES list Chicago and op</span></div>
+<div class="np"><b>Virtu Financial</b><span>Virtu fills new-grad SWE seats via internship conversion rather than a posted full-time req &#8212; no such req has ever appeared on this board. A May-2027</span></div>
+<div class="np"><b>Vivid Seats</b><span>The single live &#x27;Software Engineer&#x27; req is the un-leveled entry rung and its posted band clears his $95k floor comfortably. No new-grad program, so ap</span></div>
+<div class="np"><b>Wikimedia Foundation</b><span>but it is the closest near-miss among the non-profits. The Wikidata Platform role is genuinely remote and genuinely backend (Java/C++, knowled</span></div>
+<div class="np"><b>Workato</b><span>Workato is an integration/automation platform, so thematically on-target, and it does hire AI Engineering interns in SF - but it runs no full-time new</span></div>
+<div class="np"><b>Writer</b><span>Writer&#x27;s engineering reqs (&quot;Software engineer, generative AI&quot;, &quot;Software engineer, connectors &amp; MCP&quot;) are on-theme for backend/AI work but are all exp</span></div>
+<div class="np"><b>xAI</b><span>Worth a targeted look at &quot;Software Engineer - Evals&quot; (job-boards.greenhouse.io/xai/jobs/5188230007) since its description explicitly welcomes new grad</span></div>
+<div class="np"><b>XR Trading</b><span>Firm is running a near-empty board. Their careers page offers only a &quot;Share your information&quot; talent-community form. Nothing to apply to and no stated</span></div>
+<div class="np"><b>Zapier</b><span>Zapier is fully remote and its AI-automation product is a near-perfect thematic match for what he wants to build, but the company is hiring at</span></div>
+<div class="np"><b>Zoro</b><span>Zoro is Grainger&#x27;s e-commerce arm, downtown Chicago, and its ladder starts at &#x27;Software Engineer II&#x27; &#8212; no &#x27;I&#x27; and no campus req, so a new grad would b</span></div></div>
+  </section>
+
+  <section class="caveats">
+    <h2>Read this before you apply</h2>
+    <ul><li>Several top quant firms screen on GPA, commonly at 3.5. Akuna, Belvedere, Chicago Trading Company, Old Mission, TransMarket, Wolverine, SpiderRock and Optiver are the more accessible entries; Citadel, Jane Street, HRT, Two Sigma and Jump are the tightest.</li>
+<li>Trading firms hire on a rolling basis and close requisitions once a class fills. In this segment, applying in the first two weeks matters more than a perfectly tailored resume.</li>
+<li>Citadel and Citadel Securities auto-refresh the <span class="mono">datePosted</span> field on their own pages daily, so their dates are a freshness stamp rather than a real open date. Both requisitions are genuinely live.</li>
+<li>A dash in the pay column means the employer published no band, not that it pays poorly. Any role with a published band below $95,000 was filtered out; a handful of ranges shown start lower but top out well above the floor.</li>
+<li>Nothing here records work authorization or sponsorship, and several quant and defense-adjacent firms have hard restrictions. Confirm before investing time.</li>
+<li>Dates are the employer's own <span class="mono">first_published</span> / <span class="mono">publishedAt</span> / <span class="mono">startDate</span> field read from its applicant-tracking system, or a quoted first-party page. Requisitions still close without notice &mdash; confirm on the linked page before applying.</li></ul>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div>Compiled 27 August 2026 by scanning <span class="mono">3,680</span> company job boards directly &mdash; Greenhouse, Ashby, Lever, SmartRecruiters, Workable and Workday APIs &mdash; yielding <span class="mono">10,913</span> raw postings, filtered to <span class="mono">69</span> new-grad software roles.</div>
+  <div style="margin-top:6px">Salary figures are the employer's own posted band. A dash means the company did not publish one. Verify every posting on the linked page before applying &mdash; requisitions close without notice.</div>
+</footer>
+
+<script>
+const DATA = [{"n": 1, "co": "Clera", "role": "Software Engineer", "chi": false, "rem": true, "ai": false, "pay": "$165k&ndash;500k", "payt": "$165k-500k", "smax": 500000, "date": "2026-09-01", "t": "window", "url": "https://jobs.ashbyhq.com/clera/e15897ee-be02-48a8-a777-4869715cbb87", "why": "Software Engineer", "roles": 1, "loc": "", "soft": false, "new48": true}, {"n": 2, "co": "Defense Unicorns", "role": "Platform Engineer (FedD200/ FedD201/ FedD202)", "chi": false, "rem": true, "ai": true, "pay": "$123k&ndash;166k", "payt": "$123k-166k", "smax": 166750, "date": "2026-09-01", "t": "window", "url": "https://job-boards.greenhouse.io/defenseunicorns/jobs/5223131007", "why": "Platform Engineer &middot; Platform Engineer (FedD200/ FedD201/ FedD202)", "roles": 2, "loc": "Remote, United States", "soft": false, "new48": true}, {"n": 3, "co": "NTT Data", "role": "Junior Developer", "chi": false, "rem": true, "ai": false, "pay": "$75k&ndash;156k", "payt": "$75k-156k", "smax": 156600, "date": "2026-08-31", "t": "window", "url": "https://careers-inc.nttdata.com/job/Arlington-%28REMOTE%29-Junior-Developer-VA-22201/1425007800/", "why": "Junior Developer", "roles": 1, "loc": "Arlington", "soft": false, "new48": true}, {"n": 4, "co": "Sphinx Defense", "role": "Full Stack Engineer", "chi": false, "rem": true, "ai": false, "pay": "$130k", "payt": "$130k", "smax": 130000, "date": "2026-09-02", "t": "window", "url": "https://job-boards.greenhouse.io/sphinxdefense/jobs/5413848008", "why": "Full Stack Engineer", "roles": 1, "loc": "", "soft": false, "new48": true}, {"n": 5, "co": "Amplify", "role": "Full Stack Software Engineer", "chi": false, "rem": true, "ai": false, "pay": "$120k&ndash;129k", "payt": "$120k-129k", "smax": 129000, "date": "2026-08-31", "t": "window", "url": "https://jobs.ashbyhq.com/amplify/52bf5d5b-a1fb-4911-b686-5ebefa9d55dd", "why": "Full Stack Software Engineer", "roles": 1, "loc": "Remote - United States", "soft": false, "new48": true}, {"n": 6, "co": "GitLab", "role": "Intermediate Backend Engineer, AMER", "chi": false, "rem": true, "ai": true, "pay": "$115k", "payt": "$115k", "smax": 115200, "date": "2026-09-02", "t": "window", "url": "https://job-boards.greenhouse.io/gitlab/jobs/8773006002", "why": "Backend Engineer, AI Engineering: Duo Chat &middot; Fullstack Engineer (TypeScript), AI Engineering: Duo Client SDK &middot; Intermediate Backend Engineer, AMER", "roles": 3, "loc": "Remote, United States", "soft": false, "new48": true}, {"n": 7, "co": "Guidehouse", "role": "AWS Lakehouse Data Engineer", "chi": false, "rem": true, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-31", "t": "window", "url": "https://guidehouse.wd1.myworkdayjobs.com/en-US/external/job/US---Remote-Any-location/AWS-Lakehouse-Data-Engineer_43865", "why": "AI Software Engineer &middot; AWS Lakehouse Data Engineer &middot; Data Engineer (IE / Ops Research)", "roles": 4, "loc": "US - Remote", "soft": false, "new48": true}, {"n": 8, "co": "Infleqtion", "role": "Software Engineer, Quantum Systems & Digital Engineering", "chi": true, "rem": false, "ai": true, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-09-02", "t": "window", "url": "https://apply.workable.com/j/50D8D28146", "why": "Quantum Integrations Engineer &middot; Quantum Software Engineer (Compiler) &middot; Quantum Software Engineer - Compiler & Control Systems", "roles": 5, "loc": "", "soft": false, "new48": true}, {"n": 9, "co": "Supabase", "role": "Platform Engineer - Compute Capacity", "chi": false, "rem": true, "ai": true, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-09-02", "t": "window", "url": "https://jobs.ashbyhq.com/supabase/4eb14408-51e6-4c58-812a-3782d5c0b045", "why": "Platform Engineer - Compute Capacity", "roles": 1, "loc": "Remote, Global", "soft": false, "new48": true}, {"n": 10, "co": "Hightouch", "role": "Software Engineer, Applied AI Research", "chi": false, "rem": true, "ai": true, "pay": "$180k&ndash;400k", "payt": "$180k-400k", "smax": 400000, "date": "2026-08-28", "t": "window", "url": "https://job-boards.greenhouse.io/hightouch/jobs/6174215004", "why": "Software Engineer, Applied AI Research", "roles": 1, "loc": "", "soft": false, "new48": false}, {"n": 11, "co": "Redpanda Data", "role": "Forward Deployed Engineer - Eastern US", "chi": false, "rem": true, "ai": true, "pay": "$194k&ndash;228k", "payt": "$194k-228k", "smax": 228800, "date": "2026-08-20", "t": "live", "url": "https://jobs.ashbyhq.com/redpanda-data/6f178d53-d54a-4e4f-a8fe-523c4c4c09a1", "why": "Forward Deployed Engineer - Eastern US", "roles": 1, "loc": "New York City - Remote", "soft": false, "new48": false}, {"n": 12, "co": "Deeter Analytics", "role": "Machine Learning Engineer", "chi": false, "rem": true, "ai": true, "pay": "$150k&ndash;200k", "payt": "$150k-200k", "smax": 200000, "date": "2026-08-19", "t": "live", "url": "https://jobs.ashbyhq.com/deeter-analytics/2c12339b-d302-427c-9a73-d825b4b942b0", "why": "Machine Learning Engineer", "roles": 1, "loc": "US - Remote", "soft": false, "new48": false}, {"n": 13, "co": "IMC Trading", "role": "Graduate Performance Engineer", "chi": true, "rem": false, "ai": true, "pay": "$200k", "payt": "$200k", "smax": 200000, "date": "2026-08-27", "t": "window", "url": "https://job-boards.eu.greenhouse.io/imc/jobs/4823836101", "why": "Graduate Performance Engineer", "roles": 1, "loc": "Chicago, United States", "soft": false, "new48": false}, {"n": 14, "co": "OpenSesame", "role": "Applied AI Engineer, Internal Automation", "chi": false, "rem": true, "ai": true, "pay": "$150k&ndash;170k", "payt": "$150k-170k", "smax": 170000, "date": "2026-08-24", "t": "live", "url": "https://boards.greenhouse.io/opensesame/jobs/8152738?gh_jid=8152738", "why": "Applied AI Engineer, Internal Automation", "roles": 1, "loc": "", "soft": false, "new48": false}, {"n": 15, "co": "Roo", "role": "Full Stack Engineer", "chi": false, "rem": true, "ai": true, "pay": "$150k", "payt": "$150k", "smax": 150000, "date": "2026-08-28", "t": "window", "url": "https://job-boards.greenhouse.io/roo/jobs/5409912008", "why": "Full Stack Engineer", "roles": 1, "loc": "", "soft": false, "new48": false}, {"n": 16, "co": "Globalization Partners", "role": "Fullstack AI Engineer", "chi": false, "rem": true, "ai": true, "pay": "$117k&ndash;147k", "payt": "$117k-147k", "smax": 147000, "date": "2026-08-27", "t": "window", "url": "https://job-boards.greenhouse.io/globalizationpartners/jobs/7979219003", "why": "Fullstack AI Engineer ", "roles": 1, "loc": "United States", "soft": false, "new48": false}, {"n": 17, "co": "Cribl", "role": "Software Engineer, Edge", "chi": false, "rem": true, "ai": true, "pay": "$145k", "payt": "$145k", "smax": 145000, "date": "2026-08-19", "t": "live", "url": "https://cribl.io/job-detail/?gh_jid=6144377004", "why": "Software Engineer, Edge", "roles": 1, "loc": "Remote - United States", "soft": false, "new48": false}, {"n": 18, "co": "Propelus", "role": "Forward Deployed Engineer (Immuware)", "chi": false, "rem": true, "ai": false, "pay": "$120k&ndash;140k", "payt": "$120k-140k", "smax": 140000, "date": "2026-08-25", "t": "window", "url": "https://jobs.ashbyhq.com/propelus/6f552974-fa6a-415e-b933-b4204072106f", "why": "Forward Deployed Engineer (Immuware)", "roles": 1, "loc": "Remote - US", "soft": false, "new48": false}, {"n": 19, "co": "Impiricus", "role": "Software Engineer (Full-stack)", "chi": false, "rem": true, "ai": true, "pay": "$110k&ndash;135k", "payt": "$110k-135k", "smax": 135000, "date": "2026-08-21", "t": "live", "url": "https://job-boards.greenhouse.io/impiricus/jobs/5397992008", "why": "Software Engineer (Full-stack)", "roles": 1, "loc": "Remote - US", "soft": false, "new48": false}, {"n": 20, "co": "Torc Robotics", "role": "ML Engineer, I - MLOps Framework", "chi": false, "rem": true, "ai": true, "pay": "$132k", "payt": "$132k", "smax": 132400, "date": "2026-08-25", "t": "window", "url": "https://job-boards.greenhouse.io/torcrobotics/jobs/8728723002", "why": "ML Engineer, I - MLOps Framework", "roles": 1, "loc": "Remote - US", "soft": false, "new48": false}, {"n": 21, "co": "Dialpad", "role": "Forward Deployed Engineer", "chi": false, "rem": true, "ai": true, "pay": "$124k", "payt": "$124k", "smax": 124800, "date": "2026-08-20", "t": "live", "url": "https://job-boards.greenhouse.io/dialpad/jobs/8734067002", "why": "Forward Deployed Engineer", "roles": 1, "loc": "Anywhere, US", "soft": false, "new48": false}, {"n": 22, "co": "Mercury", "role": "Software Engineer - Infrastructure", "chi": false, "rem": true, "ai": true, "pay": "$122k", "payt": "$122k", "smax": 122400, "date": "2026-08-21", "t": "live", "url": "https://job-boards.greenhouse.io/mercury/jobs/6150432004", "why": "Software Engineer - Infrastructure", "roles": 1, "loc": "Remote - US", "soft": false, "new48": false}, {"n": 23, "co": "Alkami Technology", "role": "Software Engineer, Activations (MANTL)", "chi": false, "rem": true, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-25", "t": "window", "url": "https://alkami.wd12.myworkdayjobs.com/en-US/alkami/job/US-Remote/Software-Engineer--Activations--MANTL-_JR-000850-1", "why": "Software Engineer, Activations (MANTL)", "roles": 1, "loc": "US Remote", "soft": false, "new48": false}, {"n": 24, "co": "Alpaca", "role": "Software Engineer - Advisory Suite", "chi": false, "rem": true, "ai": true, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-27", "t": "window", "url": "https://job-boards.greenhouse.io/alpaca/jobs/6145152004", "why": "Software Engineer - Advisory Suite", "roles": 1, "loc": "Remote - Europe", "soft": false, "new48": false}, {"n": 25, "co": "Alteryx", "role": "Software Development Engineer in Test", "chi": false, "rem": true, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-19", "t": "live", "url": "https://alteryx.wd108.myworkdayjobs.com/en-US/AlteryxCareers/job/US---Remote/Software-Development-Engineer-in-Test_R11901", "why": "Software Development Engineer in Test", "roles": 1, "loc": "US - Remote", "soft": false, "new48": false}, {"n": 26, "co": "Amgen", "role": "Machine Learning Engineer, AI Studio", "chi": false, "rem": true, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-24", "t": "live", "url": "https://amgen.wd1.myworkdayjobs.com/en-US/careers/job/United-States---Remote/Machine-Learning-Engineer--AI-Studio_R-250796", "why": "Machine Learning Engineer, AI Studio", "roles": 1, "loc": "United States - Remote", "soft": false, "new48": false}, {"n": 27, "co": "Arrive Logistics", "role": "Software Engineer", "chi": true, "rem": false, "ai": true, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-27", "t": "window", "url": "https://jobs.lever.co/arrivelogistics/ed5b4a1d-619e-4b35-9c56-ece700a5282d", "why": "Software Engineer", "roles": 1, "loc": "", "soft": false, "new48": false}, {"n": 28, "co": "Barry-Wehmiller", "role": "Digital Innovation Software Engineering Leader", "chi": false, "rem": true, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-20", "t": "live", "url": "https://barrywehmiller.wd1.myworkdayjobs.com/en-US/BWCareers/job/Remote---USA/Digital-Innovation-Software-Engineering-Leader_R022528", "why": "Digital Innovation Software Engineering Leader", "roles": 1, "loc": "Remote - USA", "soft": false, "new48": false}, {"n": 29, "co": "BlackRock", "role": "Associate, Software Engineer - SMA Solutions", "chi": true, "rem": false, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-28", "t": "window", "url": "https://blackrock.wd1.myworkdayjobs.com/en-US/BlackRock_Professional/job/Chicago-IL/Associate--Software-Engineer---SMA-Solutions_R266216", "why": "Associate, Software Engineer - SMA Solutions", "roles": 1, "loc": "", "soft": false, "new48": false}, {"n": 30, "co": "Booz Allen", "role": "Software Engineer", "chi": true, "rem": false, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-19", "t": "live", "url": "https://bah.wd1.myworkdayjobs.com/en-US/bah_jobs/job/Aurora-CO/Software-Engineer_R0247402", "why": "Software Engineer", "roles": 1, "loc": "Aurora, CO", "soft": false, "new48": false}, {"n": 31, "co": "Broadcom Limited", "role": "R&D Software Engineer", "chi": true, "rem": false, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-26", "t": "window", "url": "https://broadcom.wd1.myworkdayjobs.com/en-US/external_career/job/USA-IL-Lisle-Warrenville-Road/R-D-Software-Engineer_R025496", "why": "R&D Software Engineer", "roles": 1, "loc": "USA-IL Lisle Warrenville Road", "soft": false, "new48": false}, {"n": 32, "co": "CACI", "role": "Software Engineer", "chi": true, "rem": true, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-27", "t": "window", "url": "https://caci.wd1.myworkdayjobs.com/en-US/external/job/Aurora-CO-US/Software-Engineer_331223", "why": "Modernization Software Developer &middot; Software Engineer", "roles": 2, "loc": "Aurora, CO, US", "soft": false, "new48": false}, {"n": 33, "co": "CloudFactory", "role": "Forward Deployed Engineer", "chi": true, "rem": false, "ai": true, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-27", "t": "window", "url": "https://apply.workable.com/j/0EB373C1D6", "why": "Forward Deployed Engineer", "roles": 1, "loc": "", "soft": false, "new48": false}, {"n": 34, "co": "Crowe", "role": "Machine Learning Software Engineer 1", "chi": true, "rem": false, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-20", "t": "live", "url": "https://crowe.wd12.myworkdayjobs.com/en-US/external_careers/job/Chicago-IL-USA/Machine-Learning-Software-Engineer-1_R-71006", "why": "Machine Learning Software Engineer 1", "roles": 1, "loc": "Chicago IL USA", "soft": false, "new48": false}, {"n": 35, "co": "Cursor (Anysphere)", "role": "Software Engineer, User Operations", "chi": false, "rem": true, "ai": true, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-24", "t": "live", "url": "https://jobs.ashbyhq.com/cursor/1d6dbbb2-a5af-41a6-a70a-ca97690d9313", "why": "Software Engineer, User Operations", "roles": 1, "loc": "", "soft": false, "new48": false}, {"n": 36, "co": "Dentsu", "role": "Backend Software Engineer (Python)", "chi": false, "rem": true, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-26", "t": "window", "url": "https://dentsuaegis.wd3.myworkdayjobs.com/en-US/DAN_GLOBAL/job/USA--Remote--Texas--Central-Time/Backend-Software-Engineer--Python-_R1122826", "why": "AEM Developer &middot; Backend Software Engineer (Python) &middot; Data Engineer (Adobe Experience Platform)", "roles": 3, "loc": "Remote - US", "soft": false, "new48": false}, {"n": 37, "co": "Dexcom", "role": "Software Development Engineer 1", "chi": false, "rem": true, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-27", "t": "window", "url": "https://dexcom.wd1.myworkdayjobs.com/en-US/Dexcom/job/Remote---United-States/Software-Development-Engineer-1_JR120540", "why": "Software Development Engineer 1", "roles": 1, "loc": "Remote - United States", "soft": false, "new48": false}, {"n": 38, "co": "Fidelity National Information Services", "role": "Forward Deployed Engineer", "chi": false, "rem": true, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-27", "t": "window", "url": "https://fis.wd5.myworkdayjobs.com/en-US/searchjobs/job/AUS-MLBN-Virtual/Forward-Deployed-Engineer_JR0309019-1", "why": "Forward Deployed Engineer", "roles": 1, "loc": "AUS MLBN Virtual", "soft": false, "new48": false}, {"n": 39, "co": "Foundation Health", "role": "Software Engineer", "chi": false, "rem": true, "ai": true, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-25", "t": "window", "url": "https://jobs.ashbyhq.com/foundationhealthcareers/e5a46260-f26d-4c62-a641-defcc04db137", "why": "Software Engineer", "roles": 1, "loc": "United States - Remote", "soft": false, "new48": false}, {"n": 40, "co": "Harris Computer", "role": "Software Developer", "chi": false, "rem": true, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-26", "t": "window", "url": "https://harriscomputer.wd3.myworkdayjobs.com/en-US/1/job/Remote---Missouri/Software-Developer_R0045664", "why": "Software Developer", "roles": 1, "loc": "Remote - Missouri", "soft": false, "new48": false}, {"n": 41, "co": "Jones Lang LaSalle (JLL)", "role": "Software Engineer", "chi": true, "rem": false, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-28", "t": "window", "url": "https://jll.wd1.myworkdayjobs.com/en-US/jllcareers/job/Chicago-IL/Senior-Software-Engineer_REQ506323", "why": "Software Engineer", "roles": 1, "loc": "", "soft": false, "new48": false}, {"n": 42, "co": "Mirantis", "role": "Software Engineer, Infrastructure (Go) - remote in the US", "chi": false, "rem": true, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-28", "t": "window", "url": "https://jobs.smartrecruiters.com/mirantis/744000146207309", "why": "Software Engineer, Infrastructure (Go) - remote in the US", "roles": 1, "loc": "Remote, USA", "soft": false, "new48": false}, {"n": 43, "co": "Motorola", "role": "Software Engineer", "chi": true, "rem": false, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-28", "t": "window", "url": "https://motorolasolutions.wd5.myworkdayjobs.com/en-US/Careers/job/Schaumburg-IL/Software-Engineer_R67582", "why": "Software Engineer", "roles": 1, "loc": "Schaumburg, IL", "soft": false, "new48": false}, {"n": 44, "co": "Northrop Grumman", "role": "Systems Software Integrator - Level 3 or 4 (AHT)", "chi": true, "rem": false, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-27", "t": "window", "url": "https://ngc.wd1.myworkdayjobs.com/en-US/Northrop_Grumman_External_Site/job/United-States-Colorado-Aurora/Systems-Software-Integrator---Level-3-or-4--AHT-_R10244115", "why": "Python Software Engineer Level 2 (AHT) &middot; Systems Software Integrator - Level 3 or 4 (AHT)", "roles": 2, "loc": "United States-Colorado-Aurora", "soft": false, "new48": false}, {"n": 45, "co": "PPLSI", "role": "Software Engineer", "chi": false, "rem": true, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-21", "t": "live", "url": "https://legalshieldcorp.wd1.myworkdayjobs.com/en-US/lsc/job/Remote-Job-Posting/Software-Engineer_R0002820", "why": "Software Engineer", "roles": 1, "loc": "Remote Job Posting", "soft": false, "new48": false}, {"n": 46, "co": "PPM America", "role": "Software Engineer, PPM", "chi": true, "rem": false, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-28", "t": "window", "url": "https://jackson.wd1.myworkdayjobs.com/en-US/ppma_careers/job/Chicago-IL/Software-Engineer--PPM_REQ-03910", "why": "Software Engineer, PPM", "roles": 1, "loc": "", "soft": false, "new48": false}, {"n": 47, "co": "Radiance Technologies", "role": "Cloud Infrastructure Engineer", "chi": false, "rem": true, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-28", "t": "window", "url": "https://radiancetech.wd12.myworkdayjobs.com/en-US/Radiance_External/job/All-Remote-Locations/Cloud-Infrastructure-Engineer_HR102382", "why": "Cloud Infrastructure Engineer", "roles": 1, "loc": "All Remote Locations", "soft": false, "new48": false}, {"n": 48, "co": "SHI International", "role": "Software Engineer - AI", "chi": false, "rem": true, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-25", "t": "window", "url": "https://shi.wd12.myworkdayjobs.com/en-US/shicareers/job/US---Remote/Software-Engineer---AI_JR3613", "why": "Software Engineer - AI", "roles": 1, "loc": "US - Remote", "soft": false, "new48": false}, {"n": 49, "co": "SitusAMC", "role": "Fullstack Software Developer - PHP - Remote US", "chi": false, "rem": true, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-21", "t": "live", "url": "https://situsamc.wd1.myworkdayjobs.com/en-US/SitusAMC/job/Remote/Fullstack-Software-Developer---PHP---Remote-US_JR03161", "why": "Fullstack Software Developer - PHP - Remote US", "roles": 1, "loc": "", "soft": false, "new48": false}, {"n": 50, "co": "Slate", "role": "Software Engineer", "chi": false, "rem": true, "ai": true, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-27", "t": "window", "url": "https://jobs.lever.co/slate/557fe4ab-d292-4069-8c63-36752f3da91d", "why": "Software Engineer", "roles": 1, "loc": "Remote - US ONLY", "soft": false, "new48": false}, {"n": 51, "co": "Southern Company", "role": "Application Developer I - Asset Technology AMI", "chi": true, "rem": false, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-28", "t": "window", "url": "https://emje.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/21161", "why": "Application Developer I - Asset Technology AMI", "roles": 1, "loc": "", "soft": false, "new48": false}, {"n": 52, "co": "The Home Depot", "role": "Data Engineer, BlackLocus division", "chi": false, "rem": true, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-26", "t": "window", "url": "https://homedepot.wd5.myworkdayjobs.com/en-US/careerdepot/job/GEORGIA---VIRTUAL---GA01/Data-Engineer--BlackLocus-division_Req190946", "why": "Data Engineer, BlackLocus division &middot; Software Development", "roles": 2, "loc": "GEORGIA - VIRTUAL - GA01", "soft": false, "new48": false}, {"n": 53, "co": "Virtualitics", "role": "Full Stack Engineer", "chi": false, "rem": true, "ai": true, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-27", "t": "window", "url": "https://jobs.lever.co/virtualitics/b74f87bc-59ad-49cf-a6c5-9361e3bbb19b", "why": "Full Stack Engineer", "roles": 1, "loc": "", "soft": false, "new48": false}, {"n": 54, "co": "Wex", "role": "Software Development Engineer 1", "chi": false, "rem": true, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "2026-08-24", "t": "live", "url": "https://wexinc.wd5.myworkdayjobs.com/en-US/WEXInc/job/US---Remote/Software-Development-Engineer-1_R22758", "why": "Software Development Engineer 1", "roles": 1, "loc": "US - Remote", "soft": false, "new48": false}, {"n": 55, "co": "PEAK6", "role": "Software Engineer - Campus / Entry-Level (2027) - NOT YET POSTED", "chi": true, "rem": false, "ai": false, "pay": "$102k&ndash;169k", "payt": "$102k-169k", "smax": 169000, "date": "", "t": "watch", "url": "https://careers.peak6.com/", "why": "WATCH THIS PAGE. PEAK6 is Chicago-headquartered (141 W Jackson, Board of Trade Building). Their prior-cycle \"Software Engineer - Campus Entry-Level\" requisition published the band ", "roles": 1, "loc": "", "soft": false, "new48": false}, {"n": 56, "co": "Samsara", "role": "Software Engineer I (New Grad), US", "chi": false, "rem": true, "ai": false, "pay": "$130k&ndash;150k", "payt": "$130k-150k", "smax": 150000, "date": "", "t": "watch", "url": "https://www.samsara.com/company/careers/roles", "why": "CONFIDENCE: MEDIUM on timing, LOW on location. The London 2027 new-grad req already being live is a strong tell that the US one is queued behind it. Worth a weekly check.", "roles": 1, "loc": "Remote - US", "soft": false, "new48": false}, {"n": 57, "co": "SpiderRock", "role": "Jr Software Engineer - New Graduates (2027)", "chi": true, "rem": false, "ai": false, "pay": "$110k&ndash;140k", "payt": "$110k-140k", "smax": 140000, "date": "", "t": "watch", "url": "https://spiderrock.net/careers/", "why": "CONFIDENCE: MEDIUM. Small firm, so one dated data point only. Actionable lever: they publish campusrecruiting@spiderrock.net - emailing to ask the exact 2027 open date is cheap and", "roles": 1, "loc": "", "soft": false, "new48": false}, {"n": 58, "co": "HubSpot", "role": "Software Engineer (career-starting / new grad)", "chi": false, "rem": true, "ai": false, "pay": "$110k&ndash;130k", "payt": "$110k-130k", "smax": 130000, "date": "", "t": "watch", "url": "https://www.hubspot.com/careers/jobs", "why": "CONFIDENCE: MEDIUM. Best remote-eligible candidate in the window. Caveat from HubSpot's own site: \"If you are joining HubSpot's Engineering team in a full-time role, you will be re", "roles": 1, "loc": "Cambridge, MA + Remote", "soft": false, "new48": false}, {"n": 59, "co": "McDonald's Corporation (Global Technology)", "role": "Software Engineer I", "chi": true, "rem": false, "ai": false, "pay": "$95k&ndash;115k", "payt": "$95k-115k", "smax": 115000, "date": "", "t": "watch", "url": "https://careers.mcdonalds.com/", "why": "CONFIDENCE: LOW-MEDIUM. The one dated data point is an iOS req (which the candidate should skip), but McDonald's Global Technology posts backend/platform SWE I reqs in the same Sep", "roles": 1, "loc": "", "soft": false, "new48": false}, {"n": 60, "co": "CME Group", "role": "Software Engineer I \u2013 Rotational Development Program (Technology Rotational Program)", "chi": true, "rem": false, "ai": false, "pay": "$95k&ndash;110k", "payt": "$95k-110k", "smax": 110000, "date": "", "t": "watch", "url": "https://cmegroup.wd1.myworkdayjobs.com/cme_careers", "why": "WATCH THIS ONE. CME's own early-careers page (cmegroup.com/careers/early-careers/americas.html) states applications are accepted on a rolling basis and describes the program: engin", "roles": 1, "loc": "Chicago \u2013 20 S. Wacker", "soft": false, "new48": false}, {"n": 61, "co": "Discover (now Capital One)", "role": "Technology Development Program (TDP) \u2013 full-time new grad", "chi": true, "rem": false, "ai": true, "pay": "$110k", "payt": "$110k", "smax": 110000, "date": "", "t": "watch", "url": "https://www.capitalonecareers.com/full-time-programs", "why": "IMPORTANT CONTEXT CORRECTION for the candidate's list: Discover was acquired by Capital One and no longer runs an independent careers site, so 'Discover' should be tracked as Capit", "roles": 1, "loc": "", "soft": false, "new48": false}, {"n": 62, "co": "Epsilon (Publicis Groupe)", "role": "New Grad Program - Associate, Software Engineer", "chi": true, "rem": false, "ai": false, "pay": "$85k&ndash;100k", "payt": "$85k-100k", "smax": 100000, "date": "", "t": "watch", "url": "https://careers.publicisgroupe.com/epsilon/jobs", "why": "CONFIDENCE: MEDIUM. Same-week-last-year evidence is solid - no company statement of a 2026 date exists. Stack per the archived JD: Python, Hadoop, HBase, Spark, Java, Node.j", "roles": 1, "loc": "", "soft": true, "new48": false}, {"n": 63, "co": "W.W. Grainger (incl. Zoro)", "role": "Technology Development Program \u2013 Software Engineer (GTG)", "chi": true, "rem": false, "ai": false, "pay": "&mdash;", "payt": "", "smax": 0, "date": "", "t": "watch", "url": "https://jobs.grainger.com/go/Internship/2432300/", "why": "Grainger's own Early Career Programs page describes the program verbatim: \"[the] program enables early career team members to gain experience with a variety of tech stacks across b", "roles": 1, "loc": "", "soft": false, "new48": false}];
+const list = document.getElementById('list');
+const countEl = document.getElementById('count');
+const q = document.getElementById('q');
+const selbar = document.getElementById('selbar');
+const selcount = document.getElementById('selcount');
+const selhint = document.getElementById('selhint');
+const btnVisible = document.getElementById('selvisible');
+const btnClear = document.getElementById('selclear');
+const btnCopy = document.getElementById('selcopy');
+const copybox = document.getElementById('copybox');
+const HINT_IDLE = 'Tick the companies you want, then copy the list and paste it back into Claude.';
+const HINT_PICKED = 'Copy this and paste it into Claude - it asks for one tailored resume per posting.';
+let active = 'all';
+
+let picked = new Set();
+try{
+  const raw = localStorage.getItem('tb_picked');
+  if(raw) picked = new Set(JSON.parse(raw));
+}catch(e){}
+
+function save(){
+  try{ localStorage.setItem('tb_picked', JSON.stringify(Array.from(picked))); }catch(e){}
+  try{ localStorage.setItem('tb_filter', active); }catch(e){}
+}
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+function card(d){
+  const chips = [];
+  if(d.new48) chips.push('<span class="chip new48">&lt;48 hours</span>');
+  if(d.chi) chips.push('<span class="chip chi">Chicago</span>');
+  if(d.rem) chips.push('<span class="chip rem">Remote</span>');
+  if(d.ai)  chips.push('<span class="chip ai">AI / automation</span>');
+  if(d.roles > 1) chips.push('<span class="chip">'+d.roles+' open roles</span>');
+  if(d.loc) chips.push('<span class="chip">'+esc(d.loc)+'</span>');
+  if(d.soft) chips.push('<span class="chip soft">mid under $95k</span>');
+  const label = d.t==='window' ? 'In window' : (d.t==='live' ? 'Live now' : 'Opens by Sep 20');
+  const name = d.url ? '<a href="'+esc(d.url)+'" target="_blank" rel="noopener">'+esc(d.co)+'</a>' : esc(d.co);
+  const on = picked.has(d.n);
+  return '<article class="row" data-t="'+d.t+'" data-picked="'+on+'">'
+    + '<input type="checkbox" class="pick" data-n="'+d.n+'"'+(on?' checked':'')
+    + ' aria-label="Select '+esc(d.co)+'">'
+    + '<div class="rank">'+d.n+'</div>'
+    + '<div><div class="co">'+name+'</div>'
+    + '<div class="role">'+esc(d.role)+'</div>'
+    + (d.why ? '<div class="why">'+esc(d.why)+'</div>' : '')
+    + '<div class="chips">'+chips.join('')+'</div></div>'
+    + '<div class="meta"><div class="pay">'+d.pay+'</div>'
+    + (d.date ? '<div class="date">'+esc(d.date)+'</div>' : '')
+    + '<div class="status">'+label+'</div></div>'
+    + '</article>';
+}
+
+function match(d){
+  if(active==='chi' && !d.chi) return false;
+  if(active==='rem' && !d.rem) return false;
+  if(active==='ai'  && !d.ai)  return false;
+  if(active==='window' && d.t!=='window') return false;
+  if(active==='new48' && !d.new48) return false;
+  if(active==='pay' && !(d.smax>=150000)) return false;
+  if(active==='picked' && !picked.has(d.n)) return false;
+  const t = q.value.trim().toLowerCase();
+  if(t && !((d.co+' '+d.role+' '+d.why).toLowerCase().includes(t))) return false;
+  return true;
+}
+
+function visible(){ return DATA.filter(match); }
+
+function buildText(){
+  const rows = DATA.filter(d=>picked.has(d.n));
+  const lines = rows.map(function(d,i){
+    const bits = [];
+    if(d.chi) bits.push('Chicago');
+    if(d.rem) bits.push('Remote');
+    if(!d.chi && !d.rem && d.loc) bits.push(d.loc);
+    if(d.payt) bits.push(d.payt);
+    bits.push(d.t==='watch' ? 'not posted yet - watch page' : ('opened ' + (d.date || 'date not published')));
+    return (i+1) + '. ' + d.co + ' - ' + d.role + '\n'
+         + '   ' + bits.join(' | ') + '\n'
+         + '   ' + (d.url || '(no direct link)');
+  });
+  const n = rows.length;
+  const head = n === 1
+    ? 'Tailor my resume for this role from my 2027 target board.\n\n'
+      + 'Open the posting URL and tailor against that posting\'s own requirement text, '
+      + 'then give me the keyword coverage and the honest gaps.'
+    : 'I need ' + n + ' SEPARATE resumes from my 2027 target board - one individually '
+      + 'tailored resume per posting listed below.\n\n'
+      + 'Do NOT produce a single combined resume that tries to fit all ' + n + ' at once. '
+      + 'Each posting gets its own resume, tailored to that posting only.\n\n'
+      + 'For each one: open its URL, tailor against that posting\'s own requirement text, '
+      + 'and give me the keyword coverage and the honest gaps for that role specifically.';
+  return head + '\n\n' + lines.join('\n\n');
+}
+
+function syncSel(){
+  const n = picked.size;
+  selcount.textContent = n + ' selected';
+  selbar.dataset.active = n > 0 ? 'true' : 'false';
+  btnClear.disabled = n === 0;
+  btnCopy.disabled = n === 0;
+  btnCopy.textContent = 'Copy list';
+  selhint.textContent = n === 0 ? HINT_IDLE : HINT_PICKED;
+}
+
+function render(){
+  const rows = visible();
+  list.innerHTML = rows.length ? rows.map(card).join('')
+    : '<div class="empty">No companies match that combination. Try clearing the search or switching back to All.</div>';
+  countEl.textContent = rows.length + ' of ' + DATA.length;
+  syncSel();
+  save();
+}
+
+list.addEventListener('change', function(e){
+  const box = e.target.closest('.pick');
+  if(!box) return;
+  const n = Number(box.dataset.n);
+  if(box.checked) picked.add(n); else picked.delete(n);
+  const row = box.closest('.row');
+  if(row) row.dataset.picked = box.checked;
+  if(active === 'picked' && !box.checked){ render(); return; }
+  syncSel();
+  save();
+});
+
+document.querySelectorAll('button.f').forEach(function(b){
+  b.addEventListener('click', function(){
+    active = b.dataset.f;
+    document.querySelectorAll('button.f').forEach(function(x){
+      x.setAttribute('aria-pressed', String(x===b));
+    });
+    copybox.dataset.open = 'false';
+    render();
+  });
+});
+q.addEventListener('input', render);
+
+btnVisible.addEventListener('click', function(){
+  visible().forEach(function(d){ picked.add(d.n); });
+  render();
+});
+btnClear.addEventListener('click', function(){
+  picked.clear();
+  copybox.dataset.open = 'false';
+  render();
+});
+
+btnCopy.addEventListener('click', function(){
+  const text = buildText();
+  function fallback(){
+    let ok = false;
+    try{
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.top = '-1000px';
+      document.body.appendChild(ta);
+      ta.select();
+      ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+    }catch(e){ ok = false; }
+    if(ok){ done(); return; }
+    copybox.value = text;
+    copybox.dataset.open = 'true';
+    copybox.focus();
+    copybox.select();
+    selhint.textContent = 'Clipboard is blocked here - the list is below and selected, press Ctrl+C (Cmd+C).';
+  }
+  function done(){
+    btnCopy.textContent = 'Copied';
+    setTimeout(syncSel, 1600);
+  }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(fallback);
+  }else{
+    fallback();
+  }
+});
+
+try{
+  const saved = localStorage.getItem('tb_filter');
+  if(saved){
+    const btn = document.querySelector('button.f[data-f="'+saved+'"]');
+    if(btn){
+      active = saved;
+      document.querySelectorAll('button.f').forEach(function(x){
+        x.setAttribute('aria-pressed', String(x===btn));
+      });
+    }
+  }
+}catch(e){}
+render();
+</script>

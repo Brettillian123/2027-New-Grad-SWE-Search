@@ -1,0 +1,42 @@
+[
+ {
+  "company": "Qualcomm",
+  "ats": "eightfold",
+  "token": "qualcomm"
+ },
+ {
+  "company": "American Express",
+  "ats": "eightfold",
+  "token": "aexp"
+ },
+ {
+  "company": "Zebra Technologies",
+  "ats": "eightfold",
+  "token": "zebra"
+ },
+ {
+  "company": "Eaton Corporation",
+  "ats": "eightfold",
+  "token": "eaton"
+ },
+ {
+  "company": "Starbucks",
+  "ats": "eightfold",
+  "token": "starbucks"
+ },
+ {
+  "company": "John Deere",
+  "ats": "eightfold",
+  "token": "johndeere"
+ },
+ {
+  "company": "Boston Scientific",
+  "ats": "eightfold",
+  "token": "bostonscientific"
+ },
+ {
+  "company": "Tektronix",
+  "ats": "eightfold",
+  "token": "ralliant"
+ }
+]

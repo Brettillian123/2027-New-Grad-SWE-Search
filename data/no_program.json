@@ -1,0 +1,374 @@
+[
+ {
+  "company": "1Password",
+  "reason": "1Password is genuinely remote (their standard location string is 'Remote (United States | Canada)'), so the remote part checks out - but they"
+ },
+ {
+  "company": "ActiveCampaign",
+  "reason": "Chicago HQ but engineering IC hiring has been moved to their Krak\u00f3w center; the only US engineering opening is Senior AI Engineer. There is no US new-"
+ },
+ {
+  "company": "Aha!",
+  "reason": "- the door is shut entirely at the moment, not just for new grads. Aha! is 100% remote, self-funded and profitable, and when it does hire engin"
+ },
+ {
+  "company": "Amount",
+  "reason": "Three open reqs company-wide. The Production Support Engineer roles are Chicago and entry-accessible, but they are support/on-call rather than the bac"
+ },
+ {
+  "company": "Anthropic",
+  "reason": "Anthropic hires new grads only through its regular SWE reqs, which are experienced-hire framed. No cohort, no dated opening. Best play is applying to"
+ },
+ {
+  "company": "Anyscale",
+  "reason": "Anyscale is running a very small hiring footprint (20 open reqs total). No campus program of any kind."
+ },
+ {
+  "company": "Anysphere / Cursor",
+  "reason": "Cursor hires exclusively into experienced SWE reqs. No cohort program, no university page, no dated opening."
+ },
+ {
+  "company": "Apple",
+  "reason": "Apple deliberately does not run a year-tagged new-grad SWE program the way Google/Meta/Amazon do. New grads apply to ordinary individual-contributor r"
+ },
+ {
+  "company": "Applied Intuition / Anysphere (Cursor)",
+  "reason": "Cursor hires experienced engineers only right now; no university program exists. Company-owned board is cursor.com/careers which routes to jobs.ashbyh"
+ },
+ {
+  "company": "Automation Anywhere",
+  "reason": "35 total open roles globally is a company in a hard hiring freeze, with essentially no US engineering hiring at all. There is no new-grad program to w"
+ },
+ {
+  "company": "Automattic",
+  "reason": "new-grad program - but Automattic is the one 'no program' company still worth a shot. It is fully remote worldwide and it hires on a paid trial"
+ },
+ {
+  "company": "Avant",
+  "reason": "Aggregator listings for Avant SWE roles (Built In, ZipRecruiter) are stale \u2014 the company's own Workday shows nine open reqs and none are engineering."
+ },
+ {
+  "company": "Baseten",
+  "reason": "Several Baseten engineering reqs are flagged isRemote=true, so Baseten is worth watching for remote backend roles generally - just not for a new-grad"
+ },
+ {
+  "company": "Bridgewater",
+  "reason": "Bridgewater's only 2027 campus req is the Investment Associate Intern (posted 2026-01-28) \u2014 no technology equivalent. Their Technology Careers page de"
+ },
+ {
+  "company": "Cameo",
+  "reason": "Cameo is down to a single open requisition company-wide and it is Staff Backend \u2014 many years beyond a new grad. There is no 2027 pipeline. Remove from"
+ },
+ {
+  "company": "Cars Commerce",
+  "reason": "Chicago HQ and they do post remote US reqs, but the entire open engineering ladder starts at Senior. No early-career pipeline visible. Deprioritize."
+ },
+ {
+  "company": "Celonis",
+  "reason": "Celonis is a process-mining/process-intelligence company - genuinely on-theme for AI automation - and it clearly runs a structured early-career machin"
+ },
+ {
+  "company": "Chainguard",
+  "reason": "Chainguard is remote-friendly and the Libraries Platform work is squarely backend, but the posted floor is 3-5 years. The 'General Internship"
+ },
+ {
+  "company": "Cloudflare",
+  "reason": "Cloudflare's university program is active right now (Fall 2026 interns are live) but it is an intern program, and Cloudflare has moved firmly"
+ },
+ {
+  "company": "Cohere",
+  "reason": "Cohere's student pipeline is Canadian co-op/internship only and feeds their Toronto office. Not a fit for a US full-time 2027 new grad."
+ },
+ {
+  "company": "CoreWeave",
+  "reason": "Large board, no campus track. CoreWeave is hiring heavily but exclusively experienced. Monitor the Greenhouse board rather than waiting on a cohort an"
+ },
+ {
+  "company": "Coyote Logistics",
+  "reason": "Dead entry \u2014 the Chicago Coyote engineering org was absorbed into RXO (Charlotte, NC HQ). If he wants this pipeline at all it is RXO's Workday, not Co"
+ },
+ {
+  "company": "Decagon",
+  "reason": "Sizeable board (137 reqs) with no campus track at all. Engineering reqs are experienced-hire. The Founder's Office role sometimes skews junior but is"
+ },
+ {
+  "company": "Discover Financial",
+  "reason": "Discover no longer exists as a standalone new-grad employer \u2014 the requisition system, the students-and-grads events, and the Workday tenant are all Ca"
+ },
+ {
+  "company": "Doximity",
+  "reason": "Doximity genuinely does hire remote-US ('San Francisco, CA or Remote (U.S.)' is their standard location string), so the remote part is real -"
+ },
+ {
+  "company": "Dropbox",
+  "reason": "Dropbox's 'Virtual First' policy is genuine and their US reqs really do say 'Remote - US', so the remote framing is not marketing. The problem"
+ },
+ {
+  "company": "DuckDuckGo",
+  "reason": "Fully remote, yes - but DuckDuckGo has stated in its own words that it has no internship program, has no new-grad track, and gates every engin"
+ },
+ {
+  "company": "Eagle Seven",
+  "reason": "Chicago (550 W Jackson) but no campus pipeline \u2014 the only software req is senior, and the junior engineering req is FPGA (hardware, ruled out). No dat"
+ },
+ {
+  "company": "Elastic",
+  "reason": "Elastic is distributed-first and hires remote across the US, and with 334 open reqs they are clearly hiring at volume - which makes the absenc"
+ },
+ {
+  "company": "ElevenLabs",
+  "reason": "Large board (249 reqs) with zero campus presence. ElevenLabs hires remote-friendly across the US, so their general SWE reqs are worth watching, but th"
+ },
+ {
+  "company": "Figure",
+  "reason": "Figure's software reqs all target experienced robotics/CV engineers in San Jose / Sunnyvale. No university program."
+ },
+ {
+  "company": "Fireworks AI",
+  "reason": "Fireworks demonstrably will hire early-career talent (they run an APM req), but the only such opening is product management, which is off-target. No S"
+ },
+ {
+  "company": "Flow Traders US",
+  "reason": "Flow Traders runs a US graduate program for TRADING only; their US engineering hiring is senior-level (5+ yrs). They do have a Chicago office with two"
+ },
+ {
+  "company": "FourKites",
+  "reason": "Chicago HQ supply-chain AI company, but with 15 open reqs total and junior engineering located in Chennai, there is no US new-grad path. Deprioritize."
+ },
+ {
+  "company": "G2",
+  "reason": "Chicago HQ but the junior engineering ladder is entirely in Bengaluru; US reqs open at Senior. No 2027 new-grad program. Deprioritize."
+ },
+ {
+  "company": "Geneva Trading",
+  "reason": "Geneva is a smaller Chicago/Dublin shop that hires experienced tech only; the one developer-titled opening is front-end, which he ruled out. No campus"
+ },
+ {
+  "company": "Glean",
+  "reason": "Glean has hired new grads into standard SWE reqs in past cycles but runs no dated cohort program, so there is nothing to watch for a specific date. Mo"
+ },
+ {
+  "company": "Grafana Labs",
+  "reason": "and this one is worth him internalizing. Grafana is remote-first and shows up on every 'remote companies' list, which is exactly why it wastes"
+ },
+ {
+  "company": "Groq",
+  "reason": "Groq has taken down its entire public job board - not just new-grad reqs. Following recent leadership turnover the company is running a talent-network"
+ },
+ {
+  "company": "Group One Trading",
+  "reason": "Group One does run a \"Software Developer Intern\" req seasonally (a stale $45\u2013$50/hr Chicago listing at group1.applicantpro.com/jobs/3854665 surfaced i"
+ },
+ {
+  "company": "Groupon",
+  "reason": "Groupon's engineering org is now mostly Europe/India (hence the EU Greenhouse board) with 17 open reqs company-wide. No campus program. Deprioritize."
+ },
+ {
+  "company": "Grubhub",
+  "reason": "Post-acquisition Grubhub is running a very small req load (7 total engineering postings company-wide, several in Boston/NY, not Chicago). No campus pi"
+ },
+ {
+  "company": "Harvey",
+  "reason": "Harvey's only campus footprint is legal-side. Engineering reqs are all experienced-hire."
+ },
+ {
+  "company": "HashiCorp",
+  "reason": "There is no HashiCorp-branded 2027 new-grad SWE application to track. If he wants Terraform/Vault/Consul work he must apply through IBM's entry-level"
+ },
+ {
+  "company": "Headlands Technologies",
+  "reason": "No 2027 SWE class to apply to, but the standing C++ Software Developer req is new-grad-eligible on its face (degree preferred, experience only \"in lie"
+ },
+ {
+  "company": "Kin Insurance",
+  "reason": "Fully-remote-friendly and backend-heavy, which fits his profile, but the ladder starts at Senior and the back-end req has been open since Oct 2025 (li"
+ },
+ {
+  "company": "Linear",
+  "reason": "Linear is a deliberately small, senior-only engineering org. Not a realistic 2027 new-grad target under any timeline."
+ },
+ {
+  "company": "LinkedIn",
+  "reason": "LOWEST-CONFIDENCE OF THE THREE and I would deprioritize it. LinkedIn does not run a publicly-posted, cohort-style new-grad SWE program the way Microso"
+ },
+ {
+  "company": "M1 Finance",
+  "reason": "Two open reqs company-wide, both compliance/ops. No engineering hiring at all right now. Deprioritize; the SmartRecruiters board is cheap to re-check"
+ },
+ {
+  "company": "Marquette Partners",
+  "reason": "No ATS, no postings, no campus program \u2014 hiring is resume-by-email and trader-focused. Nothing to watch. Skip unless he wants to cold-email info@mqpll"
+ },
+ {
+  "company": "Mercor",
+  "reason": "Mercor explicitly welcomes new grads, but only into an ops/coordination req. Their engineering postings (e.g. \"Infrastructure Engineer\") are experienc"
+ },
+ {
+  "company": "Millennium",
+  "reason": "Millennium runs no full-time 2027 new-grad SWE requisition \u2014 the campus tech pipeline is intern-to-full-time. Their main board (mlp.eightfold.ai) does"
+ },
+ {
+  "company": "Mistral AI US",
+  "reason": "Mistral does run a new-grad SWE track, just not in the US. Their US entity is small and experienced-hire only. If the candidate is open to Paris the l"
+ },
+ {
+  "company": "Modal",
+  "reason": "Small team, no cohort hiring. modal.com/careers is a thin redirect to the Ashby board, which is the source of truth."
+ },
+ {
+  "company": "Mozilla",
+  "reason": "Mozilla is fully remote with explicit 'Remote US' location strings and is hiring at reasonable volume (89 reqs), so the remote part is real -"
+ },
+ {
+  "company": "n8n",
+  "reason": "36-req board, Berlin-centric. No university or new-grad track."
+ },
+ {
+  "company": "Netflix",
+  "reason": "Netflix structurally does not hire new grads at scale - its lowest engineering rung is above typical new-grad level and it pays a single top-of-market"
+ },
+ {
+  "company": "Okta",
+  "reason": "Okta has a sizable board (349 reqs) yet not one early-career engineering role, which suggests a deliberate experienced-hire posture rather than a cycl"
+ },
+ {
+  "company": "PDT Partners",
+  "reason": "PDT is a small shop that hires new grads almost entirely through internship conversion. If he wants a shot, the general New York \"Software Engineer\" r"
+ },
+ {
+  "company": "Pega",
+  "reason": "This is a definitive negative, not an absence of evidence - Pega tells applicants in its own words not to apply more than two months before their star"
+ },
+ {
+  "company": "Pegasystems (Pega)",
+  "reason": "Structurally a poor fit for a May-2027 grad shopping in Sept 2026: Pega's stated policy is immediate-hire only, so a 2027 start would not be posted un"
+ },
+ {
+  "company": "Percona",
+  "reason": "Percona is fully remote and does hire in the Americas, but every Americas opening is a database support engineer role requiring 2+ years of ha"
+ },
+ {
+  "company": "Perplexity",
+  "reason": "No cohort program and no university page. Perplexity hires new grads only opportunistically into MTS reqs."
+ },
+ {
+  "company": "Physical Intelligence",
+  "reason": "33-req board, research-heavy, San Francisco. No early-career track. Unlikely to open one before Sept 20."
+ },
+ {
+  "company": "project44",
+  "reason": "Chicago HQ logistics-tech with real backend scale, but junior engineering headcount is in Bangalore and Krak\u00f3w; US reqs open at Senior. No 2027 new-gr"
+ },
+ {
+  "company": "Realm",
+  "reason": "There is real ambiguity about which 'Realm' was intended - the mobile-database Realm was absorbed into MongoDB years ago and no longer exists"
+ },
+ {
+  "company": "Relativity",
+  "reason": "Chicago legal-AI company, real backend/AI platform work (aiR Services = shared backend platform). No university-recruiting pipeline exists in their AT"
+ },
+ {
+  "company": "Retool",
+  "reason": "Retool publishes no posting dates at all, which is why opened_date is blank rather than guessed."
+ },
+ {
+  "company": "Scale AI",
+  "reason": "Scale AI's engineering reqs are all mid-to-senior (Software Engineer / Senior / Staff, SF-NY-London-DC). The ICML 2026 University Recruiting posting i"
+ },
+ {
+  "company": "ShipBob",
+  "reason": "Engineering is being hired in India; the US side is warehouse operations plus two senior 'AI Product Builder' roles. No new-grad path. Deprioritize."
+ },
+ {
+  "company": "Sierra",
+  "reason": "LEADING INDICATOR WORTH TRACKING: Sierra posted a dedicated University Recruiter role on 2026-08-11, which is normally the precursor to standing up a"
+ },
+ {
+  "company": "Skild AI",
+  "reason": "Watch https://www.skild.ai/career. Locations are San Mateo, Pittsburgh and Bengaluru - no Chicago, no remote engineering."
+ },
+ {
+  "company": "Sourcegraph",
+  "reason": "Sourcegraph is fully remote and helpfully publishes levels right in the job title, which makes the answer unambiguous: IC3 is roughly a mid-le"
+ },
+ {
+  "company": "SpotHero",
+  "reason": "Small Chicago company with 11 open reqs and zero IC engineering openings. No campus pipeline. Deprioritize, though the board is company-hosted and che"
+ },
+ {
+  "company": "Sprout Social",
+  "reason": "Sprout is in a hiring trough \u2014 13 open reqs total across the whole company and zero IC engineering roles. Their careers page is company-owned (sprouts"
+ },
+ {
+  "company": "Temporal",
+  "reason": "Temporal is a small (~400 person) durable-execution/workflow-orchestration company that hires senior-only - a common pattern for infrastructure startu"
+ },
+ {
+  "company": "Tempus AI",
+  "reason": "Excellent fit on substance \u2014 Chicago HQ, genuinely AI/ML-heavy (GenAI Product Builder, AI Scientist reqs live), remote-California SWE II reqs also ope"
+ },
+ {
+  "company": "Tines",
+  "reason": "Tines is a security-automation company (strong thematic fit for AI-automation) but with only 20 open reqs company-wide it is far too small to run a st"
+ },
+ {
+  "company": "Toptal",
+  "reason": "and a structural warning. Toptal's core business is a freelance marketplace, so most 'Toptal engineering jobs' he will see on aggregators are"
+ },
+ {
+  "company": "Tower Research Capital",
+  "reason": "Tower DOES hire campus in Chicago \u2014 but for 2027 they posted a full-time req only for Trader/Researcher, and the developer track is intern-only. Becau"
+ },
+ {
+  "company": "Twilio",
+  "reason": "- and this is the most important trap on the list. Twilio has roughly a dozen 'Software Engineer (L2)' and 'Software Engineer L3' reqs marked R"
+ },
+ {
+  "company": "UiPath",
+  "reason": "Despite being the marquee RPA/AI-automation company and therefore an obvious thematic fit, UiPath does not run a US new-grad SWE pipeline - its junior"
+ },
+ {
+  "company": "Vatic Labs",
+  "reason": "Fails on location as well as program \u2014 Vatic is a New York firm. Their board is largely stale (several reqs 2+ years old). Skip."
+ },
+ {
+  "company": "Verition",
+  "reason": "No full-time new-grad SWE program. Their 2027 pipeline is internship-only and converts. The \"2027 Technology Internship (US)\" DOES list Chicago and op"
+ },
+ {
+  "company": "Virtu Financial",
+  "reason": "Virtu fills new-grad SWE seats via internship conversion rather than a posted full-time req \u2014 no such req has ever appeared on this board. A May-2027"
+ },
+ {
+  "company": "Vivid Seats",
+  "reason": "The single live 'Software Engineer' req is the un-leveled entry rung and its posted band clears his $95k floor comfortably. No new-grad program, so ap"
+ },
+ {
+  "company": "Wikimedia Foundation",
+  "reason": "but it is the closest near-miss among the non-profits. The Wikidata Platform role is genuinely remote and genuinely backend (Java/C++, knowled"
+ },
+ {
+  "company": "Workato",
+  "reason": "Workato is an integration/automation platform, so thematically on-target, and it does hire AI Engineering interns in SF - but it runs no full-time new"
+ },
+ {
+  "company": "Writer",
+  "reason": "Writer's engineering reqs (\"Software engineer, generative AI\", \"Software engineer, connectors & MCP\") are on-theme for backend/AI work but are all exp"
+ },
+ {
+  "company": "xAI",
+  "reason": "Worth a targeted look at \"Software Engineer - Evals\" (job-boards.greenhouse.io/xai/jobs/5188230007) since its description explicitly welcomes new grad"
+ },
+ {
+  "company": "XR Trading",
+  "reason": "Firm is running a near-empty board. Their careers page offers only a \"Share your information\" talent-community form. Nothing to apply to and no stated"
+ },
+ {
+  "company": "Zapier",
+  "reason": "Zapier is fully remote and its AI-automation product is a near-perfect thematic match for what he wants to build, but the company is hiring at"
+ },
+ {
+  "company": "Zoro",
+  "reason": "Zoro is Grainger's e-commerce arm, downtown Chicago, and its ladder starts at 'Software Engineer II' \u2014 no 'I' and no campus req, so a new grad would b"
+ }
+]

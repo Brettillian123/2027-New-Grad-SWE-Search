@@ -1,0 +1,481 @@
+<title>2027 New Grad Target Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+
+<style>
+:root{
+  --bg:#F2F4F6; --surface:#FFFFFF; --raise:#F8FAFB;
+  --ink:#141A21; --body:#3A434F; --muted:#5E6875; --faint:#8B95A2;
+  --line:#DCE1E7; --line-soft:#E8ECF0;
+  --accent:#9E5A08; --accent-bg:#F7E9D5;
+  --live:#0A6B4D; --live-bg:#D9EDE5;
+  --window:#8A4A02; --window-bg:#FAE9D2;
+  --watch:#47525F; --watch-bg:#E4E9EE;
+  --warn:#8C3A12; --warn-bg:#FBE3D8;
+  --on-accent:#FFFFFF;
+  --shadow:0 1px 2px rgba(20,26,33,.05),0 3px 12px rgba(20,26,33,.05);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0C1116; --surface:#141A21; --raise:#1A222B;
+    --ink:#E7ECF1; --body:#C0C9D3; --muted:#8B96A4; --faint:#69737F;
+    --line:#222B36; --line-soft:#1B222B;
+    --accent:#E2A048; --accent-bg:#2E2213;
+    --live:#3FC493; --live-bg:#10281F;
+    --window:#E8A343; --window-bg:#2E2213;
+    --watch:#95A0AE; --watch-bg:#1E252E;
+    --warn:#F0A183; --warn-bg:#33190F;
+  --on-accent:#17100A;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 3px 14px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0C1116; --surface:#141A21; --raise:#1A222B;
+  --ink:#E7ECF1; --body:#C0C9D3; --muted:#8B96A4; --faint:#69737F;
+  --line:#222B36; --line-soft:#1B222B;
+  --accent:#E2A048; --accent-bg:#2E2213;
+  --live:#3FC493; --live-bg:#10281F;
+  --window:#E8A343; --window-bg:#2E2213;
+  --watch:#95A0AE; --watch-bg:#1E252E;
+  --warn:#F0A183; --warn-bg:#33190F;
+  --on-accent:#17100A;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 3px 14px rgba(0,0,0,.28);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--body);
+  font-family:"Source Sans 3",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1120px; margin:0 auto; padding:0 22px}
+h1,h2,h3{font-family:Archivo,ui-sans-serif,system-ui,sans-serif; color:var(--ink); text-wrap:balance; margin:0}
+.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace; font-variant-numeric:tabular-nums}
+
+/* ---------- masthead ---------- */
+header{border-bottom:1px solid var(--line); background:var(--surface)}
+.mast{display:flex; flex-direction:column; gap:18px; padding:34px 0 26px}
+.eyebrow{
+  font-family:"JetBrains Mono",monospace; font-size:11.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent); font-weight:600;
+}
+h1{font-size:clamp(29px,4.4vw,44px); font-weight:800; letter-spacing:-.022em; line-height:1.08}
+.lede{font-size:17.5px; color:var(--body); max-width:66ch; margin:0}
+.lede b{color:var(--ink); font-weight:600}
+
+.stats{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(128px,1fr)); gap:1px;
+  background:var(--line); border:1px solid var(--line); border-radius:9px; overflow:hidden;
+}
+.stat{background:var(--surface); padding:13px 15px}
+.stat .v{font-family:"JetBrains Mono",monospace; font-size:23px; font-weight:600; color:var(--ink); font-variant-numeric:tabular-nums}
+.stat .k{font-size:12.5px; color:var(--muted); margin-top:1px}
+
+/* ---------- findings ---------- */
+.findings{padding:30px 0 6px; display:grid; gap:13px}
+.find{
+  display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:start;
+  background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--accent);
+  border-radius:8px; padding:15px 17px; box-shadow:var(--shadow);
+}
+.find .num{
+  font-family:"JetBrains Mono",monospace; font-size:12px; font-weight:600;
+  color:var(--accent); padding-top:3px;
+}
+.find h3{font-size:16.5px; font-weight:700; letter-spacing:-.01em; margin-bottom:3px}
+.find p{margin:0; font-size:15px; color:var(--body)}
+
+/* ---------- controls ---------- */
+.controls{
+  position:sticky; top:0; z-index:20; background:var(--bg);
+  padding:16px 0 12px; border-bottom:1px solid var(--line); margin-top:26px;
+  display:grid; gap:9px;
+}
+.ctl-row{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+button.f{
+  font:inherit; font-size:13.5px; font-weight:600; cursor:pointer;
+  background:var(--surface); color:var(--body);
+  border:1px solid var(--line); border-radius:999px; padding:6px 13px;
+  transition:background .13s,border-color .13s,color .13s;
+}
+button.f:hover{border-color:var(--accent); color:var(--ink)}
+button.f[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:var(--on-accent)}
+button.f:focus-visible, input:focus-visible, a:focus-visible, button:focus-visible, textarea:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+input[type="search"]{
+  font:inherit; font-size:14px; flex:1 1 190px; min-width:150px;
+  background:var(--surface); color:var(--ink);
+  border:1px solid var(--line); border-radius:8px; padding:6px 11px;
+}
+.count{font-family:"JetBrains Mono",monospace; font-size:12.5px; color:var(--muted); margin-left:auto; white-space:nowrap}
+
+/* ---------- selection bar ---------- */
+.selbar{
+  display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+  background:var(--raise); border:1px solid var(--line); border-radius:8px;
+  padding:8px 11px;
+}
+.selbar[data-active="true"]{border-color:var(--accent); background:var(--accent-bg)}
+.selcount{
+  font-family:"JetBrains Mono",monospace; font-size:13px; font-weight:600; color:var(--ink);
+  font-variant-numeric:tabular-nums; white-space:nowrap;
+}
+.selbar .hint{font-size:13px; color:var(--muted)}
+button.act{
+  font:inherit; font-size:13px; font-weight:600; cursor:pointer;
+  background:var(--surface); color:var(--body);
+  border:1px solid var(--line); border-radius:7px; padding:5px 11px;
+  transition:background .13s,border-color .13s,color .13s;
+}
+button.act:hover:not(:disabled){border-color:var(--accent); color:var(--ink)}
+button.act:disabled{opacity:.45; cursor:not-allowed}
+button.act.primary{background:var(--accent); border-color:var(--accent); color:var(--on-accent)}
+.selbar .spacer{margin-left:auto}
+
+.copybox{
+  display:none; width:100%; min-height:150px; resize:vertical;
+  font-family:"JetBrains Mono",monospace; font-size:12.5px; line-height:1.5;
+  background:var(--surface); color:var(--ink);
+  border:1px solid var(--accent); border-radius:8px; padding:11px;
+}
+.copybox[data-open="true"]{display:block}
+
+/* ---------- list ---------- */
+.list{display:grid; gap:9px; padding:18px 0 8px}
+.row{
+  display:grid; grid-template-columns:22px 40px 1fr auto; gap:13px; align-items:start;
+  background:var(--surface); border:1px solid var(--line); border-radius:9px;
+  padding:14px 16px 14px 18px; box-shadow:var(--shadow); position:relative; overflow:hidden;
+}
+.row::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--watch)}
+.row[data-t="window"]::before{background:var(--window)}
+.row[data-t="live"]::before{background:var(--live)}
+.row[data-picked="true"]{border-color:var(--accent)}
+.pick{width:16px; height:16px; margin:4px 0 0; cursor:pointer; accent-color:var(--accent)}
+.rank{
+  font-family:"JetBrains Mono",monospace; font-size:13px; font-weight:600;
+  color:var(--faint); padding-top:2px; font-variant-numeric:tabular-nums;
+}
+.co{font-family:Archivo,sans-serif; font-size:17px; font-weight:700; color:var(--ink); letter-spacing:-.012em}
+.co a{color:inherit; text-decoration:none; border-bottom:1.5px solid var(--accent-bg)}
+.co a:hover{border-bottom-color:var(--accent)}
+.role{font-size:14.5px; color:var(--muted); margin-top:1px}
+.why{font-size:13.5px; color:var(--faint); margin-top:6px; line-height:1.5}
+.chips{display:flex; flex-wrap:wrap; gap:5px; margin-top:8px}
+.chip{
+  font-family:"JetBrains Mono",monospace; font-size:10.5px; font-weight:600;
+  letter-spacing:.06em; text-transform:uppercase;
+  padding:2.5px 7px; border-radius:4px; background:var(--watch-bg); color:var(--watch);
+}
+.chip.chi{background:var(--accent-bg); color:var(--accent)}
+.chip.rem{background:var(--live-bg); color:var(--live)}
+.chip.ai{background:var(--window-bg); color:var(--window)}
+.chip.soft{background:var(--warn-bg); color:var(--warn)}
+.chip.new48{background:var(--live); color:var(--on-accent); letter-spacing:.08em}
+.meta{text-align:right; display:grid; gap:3px; justify-items:end; min-width:96px}
+.pay{font-family:"JetBrains Mono",monospace; font-size:15.5px; font-weight:600; color:var(--ink); font-variant-numeric:tabular-nums}
+.date{font-family:"JetBrains Mono",monospace; font-size:12px; color:var(--faint)}
+.status{
+  font-family:"JetBrains Mono",monospace; font-size:10px; font-weight:600; letter-spacing:.07em;
+  text-transform:uppercase; padding:2.5px 7px; border-radius:4px; margin-top:3px;
+  background:var(--watch-bg); color:var(--watch);
+}
+.row[data-t="window"] .status{background:var(--window-bg); color:var(--window)}
+.row[data-t="live"] .status{background:var(--live-bg); color:var(--live)}
+
+.empty{padding:34px 4px; color:var(--muted); font-size:15px}
+
+.noprog{margin:26px 0 0; background:var(--surface); border:1px solid var(--line); border-radius:9px; padding:19px 21px}
+.noprog h2{font-size:17px; font-weight:700; margin-bottom:6px}
+.np-lede{font-size:14.5px; color:var(--muted); margin:0 0 13px; max-width:70ch}
+.np-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(228px,1fr)); gap:9px}
+.np{border:1px solid var(--line-soft); border-radius:7px; padding:9px 11px; background:var(--raise)}
+.np b{display:block; font-family:Archivo,sans-serif; font-size:14px; color:var(--ink); font-weight:700}
+.np span{font-size:12.5px; color:var(--faint); line-height:1.45}
+
+/* ---------- caveats + footer ---------- */
+.caveats{
+  margin:26px 0 0; background:var(--raise); border:1px solid var(--line);
+  border-radius:9px; padding:19px 21px;
+}
+.caveats h2{font-size:17px; font-weight:700; margin-bottom:9px}
+.caveats ul{margin:0; padding-left:19px; display:grid; gap:7px}
+.caveats li{font-size:14.5px; color:var(--body)}
+footer{
+  border-top:1px solid var(--line); margin-top:30px; padding:18px 0 40px;
+  font-size:13px; color:var(--faint);
+}
+footer .mono{font-size:12px}
+
+@media (max-width:660px){
+  .row{grid-template-columns:22px 1fr}
+  .rank{display:none}
+  .meta{grid-column:2; justify-items:start; text-align:left; margin-top:8px}
+  .find{grid-template-columns:1fr}
+  .find .num{padding-top:0}
+  .selbar .spacer{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important; animation:none !important}}
+</style>
+
+<header>
+  <div class="wrap mast">
+    <div class="eyebrow">Verified 27 Aug 2026 &middot; Brett Anderson &middot; B.S. CS, May 2027</div>
+    <h1>2027 New Grad Target Board</h1>
+    <p class="lede">Three hard filters, no exceptions: <b>Chicago or remote</b>, <b>posted within the last two weeks</b>, and <b>no published band below $95k</b>. Everything here was pulled from the employer's own applicant-tracking system, not an aggregator &mdash; dates are their own <span class="mono">first_published</span> field. <b>__NCO__ companies</b> clear all three.</p>
+    <div class="stats">
+      <div class="stat"><div class="v">__NCO__</div><div class="k">companies</div></div>
+      <div class="stat"><div class="v">__NCHI__</div><div class="k">hiring in Chicago</div></div>
+      <div class="stat"><div class="v">__NREM__</div><div class="k">remote-eligible</div></div>
+      <div class="stat"><div class="v">__NAI__</div><div class="k">AI / automation</div></div>
+      <div class="stat"><div class="v">__NWIN__</div><div class="k">opened since Aug 25</div></div>
+      <div class="stat"><div class="v mono">__TOPPAY__</div><div class="k">top posted base</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="findings">
+    __FINDINGS__
+  </section>
+
+  <div class="controls">
+    <div class="ctl-row">
+      <button class="f" data-f="all" aria-pressed="true">All</button>
+      <button class="f" data-f="new48" aria-pressed="false">New &lt;48h</button>
+      <button class="f" data-f="chi" aria-pressed="false">Chicago</button>
+      <button class="f" data-f="rem" aria-pressed="false">Remote</button>
+      <button class="f" data-f="ai" aria-pressed="false">AI / automation</button>
+      <button class="f" data-f="window" aria-pressed="false">Opened since Aug 25</button>
+      <button class="f" data-f="pay" aria-pressed="false">$150k+</button>
+      <button class="f" data-f="picked" aria-pressed="false">Selected</button>
+      <input type="search" id="q" placeholder="Search company or role" aria-label="Search company or role">
+      <span class="count" id="count"></span>
+    </div>
+
+    <div class="selbar" id="selbar" data-active="false">
+      <span class="selcount" id="selcount">0 selected</span>
+      <span class="hint" id="selhint">Tick the companies you want, then copy the list and paste it back into Claude.</span>
+      <span class="spacer"></span>
+      <button class="act" id="selvisible" type="button">Select all shown</button>
+      <button class="act" id="selclear" type="button" disabled>Clear</button>
+      <button class="act primary" id="selcopy" type="button" disabled>Copy list</button>
+    </div>
+    <textarea class="copybox" id="copybox" data-open="false" readonly aria-label="Selected companies, ready to copy"></textarea>
+  </div>
+
+  <div class="list" id="list"></div>
+
+  <section class="noprog">
+    <h2>Confirmed to have no 2027 new-grad track</h2>
+    <p class="np-lede">Checked directly against each company's own job board and found to have no new-grad, university, or early-career engineering req &mdash; and in most cases no non-senior engineering opening at all. Skip these rather than spending applications on them.</p>
+    <div class="np-grid">__NOPROG__</div>
+  </section>
+
+  <section class="caveats">
+    <h2>Read this before you apply</h2>
+    <ul>__CAVEATS__</ul>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div>Compiled 27 August 2026 by scanning <span class="mono">__NBOARDS__</span> company job boards directly &mdash; Greenhouse, Ashby, Lever, SmartRecruiters, Workable and Workday APIs &mdash; yielding <span class="mono">__NPOST__</span> raw postings, filtered to <span class="mono">__NCLASS__</span> new-grad software roles.</div>
+  <div style="margin-top:6px">Salary figures are the employer's own posted band. A dash means the company did not publish one. Verify every posting on the linked page before applying &mdash; requisitions close without notice.</div>
+</footer>
+
+<script>
+const DATA = __DATA__;
+const list = document.getElementById('list');
+const countEl = document.getElementById('count');
+const q = document.getElementById('q');
+const selbar = document.getElementById('selbar');
+const selcount = document.getElementById('selcount');
+const selhint = document.getElementById('selhint');
+const btnVisible = document.getElementById('selvisible');
+const btnClear = document.getElementById('selclear');
+const btnCopy = document.getElementById('selcopy');
+const copybox = document.getElementById('copybox');
+const HINT_IDLE = 'Tick the companies you want, then copy the list and paste it back into Claude.';
+const HINT_PICKED = 'Copy this and paste it into Claude - it asks for one tailored resume per posting.';
+let active = 'all';
+
+let picked = new Set();
+try{
+  const raw = localStorage.getItem('tb_picked');
+  if(raw) picked = new Set(JSON.parse(raw));
+}catch(e){}
+
+function save(){
+  try{ localStorage.setItem('tb_picked', JSON.stringify(Array.from(picked))); }catch(e){}
+  try{ localStorage.setItem('tb_filter', active); }catch(e){}
+}
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+function card(d){
+  const chips = [];
+  if(d.new48) chips.push('<span class="chip new48">&lt;48 hours</span>');
+  if(d.chi) chips.push('<span class="chip chi">Chicago</span>');
+  if(d.rem) chips.push('<span class="chip rem">Remote</span>');
+  if(d.ai)  chips.push('<span class="chip ai">AI / automation</span>');
+  if(d.roles > 1) chips.push('<span class="chip">'+d.roles+' open roles</span>');
+  if(d.loc) chips.push('<span class="chip">'+esc(d.loc)+'</span>');
+  if(d.soft) chips.push('<span class="chip soft">mid under $95k</span>');
+  const label = d.t==='window' ? 'In window' : (d.t==='live' ? 'Live now' : 'Opens by Sep 20');
+  const name = d.url ? '<a href="'+esc(d.url)+'" target="_blank" rel="noopener">'+esc(d.co)+'</a>' : esc(d.co);
+  const on = picked.has(d.n);
+  return '<article class="row" data-t="'+d.t+'" data-picked="'+on+'">'
+    + '<input type="checkbox" class="pick" data-n="'+d.n+'"'+(on?' checked':'')
+    + ' aria-label="Select '+esc(d.co)+'">'
+    + '<div class="rank">'+d.n+'</div>'
+    + '<div><div class="co">'+name+'</div>'
+    + '<div class="role">'+esc(d.role)+'</div>'
+    + (d.why ? '<div class="why">'+esc(d.why)+'</div>' : '')
+    + '<div class="chips">'+chips.join('')+'</div></div>'
+    + '<div class="meta"><div class="pay">'+d.pay+'</div>'
+    + (d.date ? '<div class="date">'+esc(d.date)+'</div>' : '')
+    + '<div class="status">'+label+'</div></div>'
+    + '</article>';
+}
+
+function match(d){
+  if(active==='chi' && !d.chi) return false;
+  if(active==='rem' && !d.rem) return false;
+  if(active==='ai'  && !d.ai)  return false;
+  if(active==='window' && d.t!=='window') return false;
+  if(active==='new48' && !d.new48) return false;
+  if(active==='pay' && !(d.smax>=150000)) return false;
+  if(active==='picked' && !picked.has(d.n)) return false;
+  const t = q.value.trim().toLowerCase();
+  if(t && !((d.co+' '+d.role+' '+d.why).toLowerCase().includes(t))) return false;
+  return true;
+}
+
+function visible(){ return DATA.filter(match); }
+
+function buildText(){
+  const rows = DATA.filter(d=>picked.has(d.n));
+  const lines = rows.map(function(d,i){
+    const bits = [];
+    if(d.chi) bits.push('Chicago');
+    if(d.rem) bits.push('Remote');
+    if(!d.chi && !d.rem && d.loc) bits.push(d.loc);
+    if(d.payt) bits.push(d.payt);
+    bits.push(d.t==='watch' ? 'not posted yet - watch page' : ('opened ' + (d.date || 'date not published')));
+    return (i+1) + '. ' + d.co + ' - ' + d.role + '\n'
+         + '   ' + bits.join(' | ') + '\n'
+         + '   ' + (d.url || '(no direct link)');
+  });
+  const n = rows.length;
+  const head = n === 1
+    ? 'Tailor my resume for this role from my 2027 target board.\n\n'
+      + 'Open the posting URL and tailor against that posting\'s own requirement text, '
+      + 'then give me the keyword coverage and the honest gaps.'
+    : 'I need ' + n + ' SEPARATE resumes from my 2027 target board - one individually '
+      + 'tailored resume per posting listed below.\n\n'
+      + 'Do NOT produce a single combined resume that tries to fit all ' + n + ' at once. '
+      + 'Each posting gets its own resume, tailored to that posting only.\n\n'
+      + 'For each one: open its URL, tailor against that posting\'s own requirement text, '
+      + 'and give me the keyword coverage and the honest gaps for that role specifically.';
+  return head + '\n\n' + lines.join('\n\n');
+}
+
+function syncSel(){
+  const n = picked.size;
+  selcount.textContent = n + ' selected';
+  selbar.dataset.active = n > 0 ? 'true' : 'false';
+  btnClear.disabled = n === 0;
+  btnCopy.disabled = n === 0;
+  btnCopy.textContent = 'Copy list';
+  selhint.textContent = n === 0 ? HINT_IDLE : HINT_PICKED;
+}
+
+function render(){
+  const rows = visible();
+  list.innerHTML = rows.length ? rows.map(card).join('')
+    : '<div class="empty">No companies match that combination. Try clearing the search or switching back to All.</div>';
+  countEl.textContent = rows.length + ' of ' + DATA.length;
+  syncSel();
+  save();
+}
+
+list.addEventListener('change', function(e){
+  const box = e.target.closest('.pick');
+  if(!box) return;
+  const n = Number(box.dataset.n);
+  if(box.checked) picked.add(n); else picked.delete(n);
+  const row = box.closest('.row');
+  if(row) row.dataset.picked = box.checked;
+  if(active === 'picked' && !box.checked){ render(); return; }
+  syncSel();
+  save();
+});
+
+document.querySelectorAll('button.f').forEach(function(b){
+  b.addEventListener('click', function(){
+    active = b.dataset.f;
+    document.querySelectorAll('button.f').forEach(function(x){
+      x.setAttribute('aria-pressed', String(x===b));
+    });
+    copybox.dataset.open = 'false';
+    render();
+  });
+});
+q.addEventListener('input', render);
+
+btnVisible.addEventListener('click', function(){
+  visible().forEach(function(d){ picked.add(d.n); });
+  render();
+});
+btnClear.addEventListener('click', function(){
+  picked.clear();
+  copybox.dataset.open = 'false';
+  render();
+});
+
+btnCopy.addEventListener('click', function(){
+  const text = buildText();
+  function fallback(){
+    let ok = false;
+    try{
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.top = '-1000px';
+      document.body.appendChild(ta);
+      ta.select();
+      ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+    }catch(e){ ok = false; }
+    if(ok){ done(); return; }
+    copybox.value = text;
+    copybox.dataset.open = 'true';
+    copybox.focus();
+    copybox.select();
+    selhint.textContent = 'Clipboard is blocked here - the list is below and selected, press Ctrl+C (Cmd+C).';
+  }
+  function done(){
+    btnCopy.textContent = 'Copied';
+    setTimeout(syncSel, 1600);
+  }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(fallback);
+  }else{
+    fallback();
+  }
+});
+
+try{
+  const saved = localStorage.getItem('tb_filter');
+  if(saved){
+    const btn = document.querySelector('button.f[data-f="'+saved+'"]');
+    if(btn){
+      active = saved;
+      document.querySelectorAll('button.f').forEach(function(x){
+        x.setAttribute('aria-pressed', String(x===btn));
+      });
+    }
+  }
+}catch(e){}
+render();
+</script>

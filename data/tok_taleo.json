@@ -1,0 +1,1532 @@
+[
+ {
+  "company": "Port of Seattle",
+  "ats": "taleo",
+  "token": "aa243/ex",
+  "flavor": "taleo_classic",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "AAR",
+  "ats": "taleo",
+  "token": "aarcorp/aar_mobile",
+  "flavor": "taleo_classic",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 5
+ },
+ {
+  "company": "AICPA",
+  "ats": "taleo",
+  "token": "aicpa/aicpa_mobilecs",
+  "flavor": "taleo_classic",
+  "verified_live": true,
+  "has_date": false,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "BAE Systems",
+  "ats": "taleo",
+  "token": "baesystems/2",
+  "flavor": "taleo_classic",
+  "verified_live": true,
+  "has_date": false,
+  "n_urls_in_corpus": 5
+ },
+ {
+  "company": "Cincinnati Financial",
+  "ats": "taleo",
+  "token": "cinfin/ex",
+  "flavor": "taleo_classic",
+  "verified_live": true,
+  "has_date": false,
+  "n_urls_in_corpus": 5
+ },
+ {
+  "company": "D.R. Horton",
+  "ats": "taleo",
+  "token": "drhorton/2",
+  "flavor": "taleo_classic",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Energy Transfer Partners",
+  "ats": "taleo",
+  "token": "energytransfer/etp_ext",
+  "flavor": "taleo_classic",
+  "verified_live": false,
+  "has_date": false,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Amentum",
+  "ats": "taleo",
+  "token": "jacobs/ex3",
+  "flavor": "taleo_classic",
+  "verified_live": false,
+  "has_date": false,
+  "n_urls_in_corpus": 3
+ },
+ {
+  "company": "Kearney",
+  "ats": "taleo",
+  "token": "kearney/01",
+  "flavor": "taleo_classic",
+  "verified_live": false,
+  "has_date": false,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Kaiser Permanente",
+  "ats": "taleo",
+  "token": "kp/external",
+  "flavor": "taleo_classic",
+  "verified_live": false,
+  "has_date": false,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Lawrence Berkeley National Laboratory",
+  "ats": "taleo",
+  "token": "lbl/5",
+  "flavor": "taleo_classic",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 18
+ },
+ {
+  "company": "Commonwealth of Massachusetts",
+  "ats": "taleo",
+  "token": "massanf/ex",
+  "flavor": "taleo_classic",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 3
+ },
+ {
+  "company": "State of Montana",
+  "ats": "taleo",
+  "token": "mtstatejobs/200",
+  "flavor": "taleo_classic",
+  "verified_live": true,
+  "has_date": false,
+  "n_urls_in_corpus": 6
+ },
+ {
+  "company": "Ross Stores",
+  "ats": "taleo",
+  "token": "rossstores/rstrcs1.1",
+  "flavor": "taleo_classic",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Textron",
+  "ats": "taleo",
+  "token": "textron/textron",
+  "flavor": "taleo_classic",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 7
+ },
+ {
+  "company": "UT Southwestern Medical Center",
+  "ats": "taleo",
+  "token": "utsw/2",
+  "flavor": "taleo_classic",
+  "verified_live": true,
+  "has_date": false,
+  "n_urls_in_corpus": 6
+ },
+ {
+  "company": "Valero",
+  "ats": "taleo",
+  "token": "valero/2",
+  "flavor": "taleo_classic",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Vulcan Materials",
+  "ats": "taleo",
+  "token": "vulcanmat/2",
+  "flavor": "taleo_classic",
+  "verified_live": false,
+  "has_date": false,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "West Virginia University",
+  "ats": "taleo",
+  "token": "wvu/faculty",
+  "flavor": "taleo_classic",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 4
+ },
+ {
+  "company": "Standard Aero",
+  "ats": "oraclecloud",
+  "token": "cva.fa.us1.oraclecloud.com/CX_3",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 3
+ },
+ {
+  "company": "Arcadis",
+  "ats": "oraclecloud",
+  "token": "ebcs.fa.em2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 11
+ },
+ {
+  "company": "Texas Instruments",
+  "ats": "oraclecloud",
+  "token": "ebgj.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Cetera Financial Group",
+  "ats": "oraclecloud",
+  "token": "ebhu.fa.us2.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 4
+ },
+ {
+  "company": "Hologic",
+  "ats": "oraclecloud",
+  "token": "ebwb.fa.us2.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 12
+ },
+ {
+  "company": "ACI Worldwide ",
+  "ats": "oraclecloud",
+  "token": "ebwg.fa.us2.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Macy's",
+  "ats": "oraclecloud",
+  "token": "ebwh.fa.us2.oraclecloud.com/CX_1001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 8
+ },
+ {
+  "company": "DTCC",
+  "ats": "oraclecloud",
+  "token": "ebxr.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 6
+ },
+ {
+  "company": "Michael Baker International",
+  "ats": "oraclecloud",
+  "token": "ebxs.fa.us2.oraclecloud.com/CX_2",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Blue Shield of California",
+  "ats": "oraclecloud",
+  "token": "ecge.fa.us2.oraclecloud.com/CX_1003",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Tradeweb",
+  "ats": "oraclecloud",
+  "token": "ecnf.fa.us2.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 7
+ },
+ {
+  "company": "Vanderbilt University",
+  "ats": "oraclecloud",
+  "token": "ecsr.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 3
+ },
+ {
+  "company": "Adventist Health",
+  "ats": "oraclecloud",
+  "token": "ecvz.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 4
+ },
+ {
+  "company": "DNV",
+  "ats": "oraclecloud",
+  "token": "ecyq.fa.em2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 3
+ },
+ {
+  "company": "Yum! Brands",
+  "ats": "oraclecloud",
+  "token": "eczd.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Acosta Group",
+  "ats": "oraclecloud",
+  "token": "eczy.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Texas Instruments",
+  "ats": "oraclecloud",
+  "token": "edbz.fa.us2.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 27
+ },
+ {
+  "company": "Fortinet",
+  "ats": "oraclecloud",
+  "token": "edel.fa.us2.oraclecloud.com/CX_2001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 12
+ },
+ {
+  "company": "Caesars Entertainment",
+  "ats": "oraclecloud",
+  "token": "edmn.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 15
+ },
+ {
+  "company": "GCI",
+  "ats": "oraclecloud",
+  "token": "edqv.fa.us2.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Sinclair",
+  "ats": "oraclecloud",
+  "token": "edyy.fa.us2.oraclecloud.com/CX_2002",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 4
+ },
+ {
+  "company": "WTW",
+  "ats": "oraclecloud",
+  "token": "eedu.fa.em3.oraclecloud.com/CX_1003",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 7
+ },
+ {
+  "company": "Oracle",
+  "ats": "oraclecloud",
+  "token": "eeho.fa.us2.oraclecloud.com/CX_45001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 36
+ },
+ {
+  "company": "University of Wyoming",
+  "ats": "oraclecloud",
+  "token": "eeik.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Diebold Nixdorf",
+  "ats": "oraclecloud",
+  "token": "eeug.fa.us6.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 5
+ },
+ {
+  "company": "Hearst",
+  "ats": "oraclecloud",
+  "token": "eevd.fa.us6.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 5
+ },
+ {
+  "company": "Sundt",
+  "ats": "oraclecloud",
+  "token": "eewl.fa.us6.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Greenwood Village South",
+  "ats": "oraclecloud",
+  "token": "eexs.fa.us2.oraclecloud.com/GreenwoodVillageSouth",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "ATCO",
+  "ats": "oraclecloud",
+  "token": "eezy.fa.ca2.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Ford Motor Company",
+  "ats": "oraclecloud",
+  "token": "efds.fa.em5.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 11
+ },
+ {
+  "company": "Hilton Worldwide",
+  "ats": "oraclecloud",
+  "token": "efet.fa.us2.oraclecloud.com/CX_1009",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Hoffman Construction",
+  "ats": "oraclecloud",
+  "token": "efsp.fa.us6.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "NOV",
+  "ats": "oraclecloud",
+  "token": "egay.fa.us6.oraclecloud.com/CX_4001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 7
+ },
+ {
+  "company": "Conduent",
+  "ats": "oraclecloud",
+  "token": "egua.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 3
+ },
+ {
+  "company": "AutoZone",
+  "ats": "oraclecloud",
+  "token": "egud.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "American Express",
+  "ats": "oraclecloud",
+  "token": "egug.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 6
+ },
+ {
+  "company": "Vertiv",
+  "ats": "oraclecloud",
+  "token": "egup.fa.us2.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 80
+ },
+ {
+  "company": "Williams-Sonoma",
+  "ats": "oraclecloud",
+  "token": "ehac.fa.us6.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Wood",
+  "ats": "oraclecloud",
+  "token": "ehif.fa.em2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "DP World",
+  "ats": "oraclecloud",
+  "token": "ehpv.fa.em2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "ADI Global Distribution",
+  "ats": "oraclecloud",
+  "token": "ehtl.fa.us6.oraclecloud.com/CX_2",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Mycronic",
+  "ats": "oraclecloud",
+  "token": "ehtv.fa.em2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Grant Thornton",
+  "ats": "oraclecloud",
+  "token": "ehzq.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "UW Health",
+  "ats": "oraclecloud",
+  "token": "eimy.fa.us6.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Consolidated Edison",
+  "ats": "oraclecloud",
+  "token": "ejcu.fa.us6.oraclecloud.com/CX_1033",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 3
+ },
+ {
+  "company": "Sherwin-Williams",
+  "ats": "oraclecloud",
+  "token": "ejhp.fa.us6.oraclecloud.com/CX_2",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 6
+ },
+ {
+  "company": "S&C Electric Company",
+  "ats": "oraclecloud",
+  "token": "ejia.fa.us6.oraclecloud.com/CX_1001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Blue Cross Blue Shield of Michigan",
+  "ats": "oraclecloud",
+  "token": "ejko.fa.us2.oraclecloud.com/CX_3",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 6
+ },
+ {
+  "company": "GHD",
+  "ats": "oraclecloud",
+  "token": "ejov.fa.ca2.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 6
+ },
+ {
+  "company": "VITAS Healthcare",
+  "ats": "oraclecloud",
+  "token": "ejrz.fa.us2.oraclecloud.com/CX_5001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Fortive",
+  "ats": "oraclecloud",
+  "token": "ejta.fa.us6.oraclecloud.com/CX_2001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 9
+ },
+ {
+  "company": "Marriott International",
+  "ats": "oraclecloud",
+  "token": "ejwl.fa.us2.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 8
+ },
+ {
+  "company": "Schroders",
+  "ats": "oraclecloud",
+  "token": "ekbq.fa.em2.oraclecloud.com/CX_2",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 9
+ },
+ {
+  "company": "Myriad Genetics",
+  "ats": "oraclecloud",
+  "token": "ekgn.fa.us6.oraclecloud.com/CX_2001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Carmeuse",
+  "ats": "oraclecloud",
+  "token": "ekiz.fa.em2.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Hormel Foods",
+  "ats": "oraclecloud",
+  "token": "ekkh.fa.us2.oraclecloud.com/CX_2002",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Inova",
+  "ats": "oraclecloud",
+  "token": "elar.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Omnicell",
+  "ats": "oraclecloud",
+  "token": "elrj.fa.us2.oraclecloud.com/CX_9001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "City of Greeley",
+  "ats": "oraclecloud",
+  "token": "elvp.fa.us2.oraclecloud.com/CX_1001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 3
+ },
+ {
+  "company": "The University of Edinburgh",
+  "ats": "oraclecloud",
+  "token": "elxw.fa.em3.oraclecloud.com/CX_1001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 10
+ },
+ {
+  "company": "Waste Management",
+  "ats": "oraclecloud",
+  "token": "emcm.fa.us2.oraclecloud.com/WMCareers",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Rice University",
+  "ats": "oraclecloud",
+  "token": "emdz.fa.us2.oraclecloud.com/CX_2001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 4
+ },
+ {
+  "company": "WSP",
+  "ats": "oraclecloud",
+  "token": "emit.fa.ca3.oraclecloud.com/CX_2001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 22
+ },
+ {
+  "company": "Southern Company",
+  "ats": "oraclecloud",
+  "token": "emje.fa.us6.oraclecloud.com/CX_1001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 4
+ },
+ {
+  "company": "Heathrow",
+  "ats": "oraclecloud",
+  "token": "encd.fa.em3.oraclecloud.com/CX_6005",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Albertsons",
+  "ats": "oraclecloud",
+  "token": "eofd.fa.us6.oraclecloud.com/CX_1001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 18
+ },
+ {
+  "company": "BNY",
+  "ats": "oraclecloud",
+  "token": "eofe.fa.us2.oraclecloud.com/CX_1001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 14
+ },
+ {
+  "company": "Bank of England",
+  "ats": "oraclecloud",
+  "token": "eoff.fa.em1.ukg.oraclecloud.com/CX_1001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Black Box",
+  "ats": "oraclecloud",
+  "token": "eoje.fa.us2.oraclecloud.com/CX_1001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 3
+ },
+ {
+  "company": "Northwell Health",
+  "ats": "oraclecloud",
+  "token": "eppr.fa.us2.oraclecloud.com/CX_2",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 3
+ },
+ {
+  "company": "Clean Harbors",
+  "ats": "oraclecloud",
+  "token": "epyc.fa.us2.oraclecloud.com/CX_1001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Atlantic Health System",
+  "ats": "oraclecloud",
+  "token": "erqh.fa.us2.oraclecloud.com/CX_1001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "INTEGRIS Health",
+  "ats": "oraclecloud",
+  "token": "ertr.fa.us2.oraclecloud.com/CX_3001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Virginia Department of Transportation",
+  "ats": "oraclecloud",
+  "token": "etgi.fa.us8.oraclecloud.com/CX_4005",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Nevada National Security ",
+  "ats": "oraclecloud",
+  "token": "ewij.fa.us8.oraclecloud.com/CX_2",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Savannah River National Laboratory",
+  "ats": "oraclecloud",
+  "token": "ewvl.fa.us8.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 5
+ },
+ {
+  "company": "Manhattan District Attorney's Office",
+  "ats": "oraclecloud",
+  "token": "fa-elzs-saasfaprod1.fa.ocs.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Ascot",
+  "ats": "oraclecloud",
+  "token": "fa-emkq-saasfaprod1.fa.ocs.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Tauck",
+  "ats": "oraclecloud",
+  "token": "fa-emxf-saasfaprod1.fa.ocs.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Phoenix Group",
+  "ats": "oraclecloud",
+  "token": "fa-enor-saasfaprod1.fa.ocs.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "UTHealth Houston",
+  "ats": "oraclecloud",
+  "token": "fa-eomf-saasfaprod1.fa.ocs.oraclecloud.com/CX_1002",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 4
+ },
+ {
+  "company": "CSX",
+  "ats": "oraclecloud",
+  "token": "fa-eowa-saasfaprod1.fa.ocs.oraclecloud.com/CSXCareers",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Linamar",
+  "ats": "oraclecloud",
+  "token": "fa-epmd-saasfaprod1.fa.ocs.oraclecloud.com/CX_3001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Hunt Oil Company",
+  "ats": "oraclecloud",
+  "token": "fa-eqcd-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Polk County",
+  "ats": "oraclecloud",
+  "token": "fa-eqpz-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Hillsborough County",
+  "ats": "oraclecloud",
+  "token": "fa-eqsg-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "City Of Chattanooga",
+  "ats": "oraclecloud",
+  "token": "fa-eqto-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "ADT",
+  "ats": "oraclecloud",
+  "token": "fa-erqb-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 36
+ },
+ {
+  "company": "SCOR",
+  "ats": "oraclecloud",
+  "token": "fa-errt-saasfaprod1.fa.ocs.oraclecloud.com/CX_2001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Montenson",
+  "ats": "oraclecloud",
+  "token": "fa-esgu-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Cummins",
+  "ats": "oraclecloud",
+  "token": "fa-espx-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 38
+ },
+ {
+  "company": "Berkshire Hathaway Energy",
+  "ats": "oraclecloud",
+  "token": "fa-essf-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 13
+ },
+ {
+  "company": "Navy Federal",
+  "ats": "oraclecloud",
+  "token": "fa-etbx-saasfaprod1.fa.ocs.oraclecloud.com/nfcu",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "FirstEnergy",
+  "ats": "oraclecloud",
+  "token": "fa-etjd-saasfaprod1.fa.ocs.oraclecloud.com/FirstEnergyCareers",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Northumbria University",
+  "ats": "oraclecloud",
+  "token": "fa-etnb-saasfaprod1.fa.ocs.oraclecloud.com/CX_1001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 5
+ },
+ {
+  "company": "Perficient",
+  "ats": "oraclecloud",
+  "token": "fa-etqd-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "HEXAWARE",
+  "ats": "oraclecloud",
+  "token": "fa-etqo-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 5
+ },
+ {
+  "company": "GuideWell Mutual",
+  "ats": "oraclecloud",
+  "token": "fa-etum-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Dallas County",
+  "ats": "oraclecloud",
+  "token": "fa-etvc-saasfaprod1.fa.ocs.oraclecloud.com/CX_1001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Zensar",
+  "ats": "oraclecloud",
+  "token": "fa-etvl-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "City of Oklahoma City",
+  "ats": "oraclecloud",
+  "token": "fa-etyr-saasfaprod1.fa.ocs.oraclecloud.com/CX_2",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "UL Solutions",
+  "ats": "oraclecloud",
+  "token": "fa-eups-saasfaprod1.fa.ocs.oraclecloud.com/ULSolutionsCareers",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 9
+ },
+ {
+  "company": "BGIS",
+  "ats": "oraclecloud",
+  "token": "fa-evcg-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Computershare",
+  "ats": "oraclecloud",
+  "token": "fa-evdq-saasfaprod1.fa.ocs.oraclecloud.com/CX_2001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Nokia",
+  "ats": "oraclecloud",
+  "token": "fa-evmr-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 23
+ },
+ {
+  "company": "Community Health Systems",
+  "ats": "oraclecloud",
+  "token": "fa-evxo-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 4
+ },
+ {
+  "company": "University of Maine System",
+  "ats": "oraclecloud",
+  "token": "fa-ewca-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Chubb",
+  "ats": "oraclecloud",
+  "token": "fa-ewgu-saasfaprod1.fa.ocs.oraclecloud.com/CX_2001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "EXL",
+  "ats": "oraclecloud",
+  "token": "fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/CX_2",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 13
+ },
+ {
+  "company": "Verisk",
+  "ats": "oraclecloud",
+  "token": "fa-ewmy-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 4
+ },
+ {
+  "company": "Duracell",
+  "ats": "oraclecloud",
+  "token": "fa-ewub-saasfaprod1.fa.ocs.oraclecloud.com/CX_26",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Tri-State Generation and Transmission Association",
+  "ats": "oraclecloud",
+  "token": "fa-exbd-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Ritchie Bros.",
+  "ats": "oraclecloud",
+  "token": "fa-exew-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Staples",
+  "ats": "oraclecloud",
+  "token": "fa-exhh-saasfaprod1.fa.ocs.oraclecloud.com/StaplesInc",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Fanatics",
+  "ats": "oraclecloud",
+  "token": "fa-exki-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 10
+ },
+ {
+  "company": "Arlington County VA",
+  "ats": "oraclecloud",
+  "token": "fa-exkk-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Weatherford",
+  "ats": "oraclecloud",
+  "token": "fa-exmi-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Akamai Technologies",
+  "ats": "oraclecloud",
+  "token": "fa-extu-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Howmet Aerospace",
+  "ats": "oraclecloud",
+  "token": "fa-exty-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 11
+ },
+ {
+  "company": "GM financial",
+  "ats": "oraclecloud",
+  "token": "fa-exvu-saasfaprod1.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 23
+ },
+ {
+  "company": "Eastern Bank",
+  "ats": "oraclecloud",
+  "token": "gka.fa.us1.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "American Bureau of Shipping",
+  "ats": "oraclecloud",
+  "token": "hbbq.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Subaru",
+  "ats": "oraclecloud",
+  "token": "hcal.fa.us2.oraclecloud.com/CX_1001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Pearson",
+  "ats": "oraclecloud",
+  "token": "hccz.fa.em3.oraclecloud.com/CX_2",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Citizens Financial Group",
+  "ats": "oraclecloud",
+  "token": "hcgn.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 10
+ },
+ {
+  "company": "Cooper Companies",
+  "ats": "oraclecloud",
+  "token": "hcjy.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 3
+ },
+ {
+  "company": "Molina Healthcare",
+  "ats": "oraclecloud",
+  "token": "hckd.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 7
+ },
+ {
+  "company": "Intertek",
+  "ats": "oraclecloud",
+  "token": "hcog.fa.em2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 19
+ },
+ {
+  "company": "RH",
+  "ats": "oraclecloud",
+  "token": "hcqq.fa.us2.oraclecloud.com/CX_5004",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "onsemi",
+  "ats": "oraclecloud",
+  "token": "hctz.fa.us2.oraclecloud.com/CX_1001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 6
+ },
+ {
+  "company": "Coherent ",
+  "ats": "oraclecloud",
+  "token": "hcwp.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 5
+ },
+ {
+  "company": "Denso",
+  "ats": "oraclecloud",
+  "token": "hcwt.fa.us2.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 7
+ },
+ {
+  "company": "Kroll",
+  "ats": "oraclecloud",
+  "token": "hcxs.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "CSC",
+  "ats": "oraclecloud",
+  "token": "hczw.fa.us2.oraclecloud.com/CX_1001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Hub Group",
+  "ats": "oraclecloud",
+  "token": "hdat.fa.us2.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Rheem",
+  "ats": "oraclecloud",
+  "token": "hdde.fa.us2.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Sainsbury's",
+  "ats": "oraclecloud",
+  "token": "hdhe.fa.em3.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1586
+ },
+ {
+  "company": "Stantec",
+  "ats": "oraclecloud",
+  "token": "hdhl.fa.us6.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 5
+ },
+ {
+  "company": "Jefferies",
+  "ats": "oraclecloud",
+  "token": "hdid.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 6
+ },
+ {
+  "company": "Emerson Electric",
+  "ats": "oraclecloud",
+  "token": "hdjq.fa.us2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 18
+ },
+ {
+  "company": "Definity Financial",
+  "ats": "oraclecloud",
+  "token": "hdks.fa.ca2.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Arconic",
+  "ats": "oraclecloud",
+  "token": "hdnn.fa.us6.oraclecloud.com/CX",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 4
+ },
+ {
+  "company": "Cantor Fitzgerald",
+  "ats": "oraclecloud",
+  "token": "hdow.fa.us6.oraclecloud.com/CX_1003",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Goldman Sachs",
+  "ats": "oraclecloud",
+  "token": "hdpc.fa.us2.oraclecloud.com/LateralHiring",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 12
+ },
+ {
+  "company": "Mauser Packaging Solutions",
+  "ats": "oraclecloud",
+  "token": "hdpn.fa.us6.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Dell Technologies",
+  "ats": "oraclecloud",
+  "token": "iawmqy.fa.ocs.oraclecloud.com/careers",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 2
+ },
+ {
+  "company": "Lifepoint Health",
+  "ats": "oraclecloud",
+  "token": "ibnjjb.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ },
+ {
+  "company": "Honeywell",
+  "ats": "oraclecloud",
+  "token": "ibqbjb.fa.ocs.oraclecloud.com/Honeywell",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 32
+ },
+ {
+  "company": "Ralliant",
+  "ats": "oraclecloud",
+  "token": "ibwujb.fa.ocs.oraclecloud.com/CX_1001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 5
+ },
+ {
+  "company": "JP Morgan Chase",
+  "ats": "oraclecloud",
+  "token": "jpmc.fa.oraclecloud.com/CX_1001",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 154
+ },
+ {
+  "company": "Tulane University",
+  "ats": "oraclecloud",
+  "token": "tulane-ibqejb.fa.ocs.oraclecloud.com/CX_1",
+  "flavor": "oracle_cloud_recruiting",
+  "verified_live": true,
+  "has_date": true,
+  "n_urls_in_corpus": 1
+ }
+]
