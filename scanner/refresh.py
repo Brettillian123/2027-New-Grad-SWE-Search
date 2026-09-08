@@ -70,26 +70,6 @@ SCANS = [
 WORKERS = 32   # measured: 8 -> 8.1 req/s, 32 -> 16.0, 64 -> 18.6. 32 is the knee.
 
 
-def stage_data():
-    """Make the tracked data files visible to the scripts that read them.
-
-    Every scanner script runs with cwd=scanner/ and opens its inputs by bare
-    filename, but the repo publishes them under data/. On a fresh clone that
-    means nothing resolves, so copy anything missing across once at startup.
-    Files already in scanner/ are left alone - they are the newer ones.
-    """
-    src = os.path.join(OUT, 'data')
-    if not os.path.isdir(src):
-        return
-    for f in os.listdir(src):
-        if not f.endswith('.json'):
-            continue
-        dst = os.path.join(HERE, f)
-        if not os.path.exists(dst):
-            with open(os.path.join(src, f), 'rb') as a, open(dst, 'wb') as b:
-                b.write(a.read())
-
-
 def run_scans(fast, scan_all):
     import tiers
     st = tiers.load()
@@ -126,6 +106,19 @@ def run_scans(fast, scan_all):
                 r.setdefault('ats', ats or r.get('ats') or 'workday')
             st = tiers.record(st, rows)
     tiers.save(st)
+
+
+def n_boards():
+    """How many boards this scan could actually reach, counted not retyped."""
+    n = 0
+    for f in ('targets_all.json', 'wd_targets_full.json'):
+        p = os.path.join(HERE, f)
+        if os.path.exists(p):
+            try:
+                n += len(json.load(open(p, encoding='utf-8')))
+            except Exception:
+                pass
+    return n or 3680
 
 
 def load_postings():
@@ -265,7 +258,6 @@ def main():
     print('  <48h cutoff      %s' % NEW48.isoformat())
     print()
 
-    stage_data()
     if not a.no_scan:
         run_scans(a.fast, a.all)
         print()
@@ -286,7 +278,7 @@ def main():
 
     board = build_board(kept)
     json.dump(board, open(os.path.join(HERE, 'final.json'), 'w'), indent=1)
-    json.dump({'boards': '3,680', 'posts': format(len(rows), ','),
+    json.dump({'boards': format(n_boards(), ','), 'posts': format(len(rows), ','),
                'classified': len(kept),
                # the page states its own filters, so they travel with the run
                # instead of being retyped into the template every time
