@@ -33,3 +33,18 @@ __pycache__/
 *.pyc
 node_modules/
 package-lock.json
+
+# Archives hide PII from a text grep. job-applications-skill.zip contains
+# master_resume.md with a phone number, an email and a GPA, and it sailed past a
+# content scan because zip is binary.
+*.zip
+*.tar
+*.tar.gz
+
+# build_resume.js hardcodes the contact block - phone number and email - inside
+# the docx template. md2docx.js is the parameterised replacement and is safe.
+build_resume.js
+
+# Personal job-search material, not scanner code.
+recruiter_outreach_templates.md
+job-applications-skill.zip
