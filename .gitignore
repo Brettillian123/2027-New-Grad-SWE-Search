@@ -48,3 +48,26 @@ build_resume.js
 # Personal job-search material, not scanner code.
 recruiter_outreach_templates.md
 job-applications-skill.zip
+# Common Crawl index cache: ~100 MB, re-downloaded by ccharvest.py on demand.
+cluster_*.idx
+
+# Harvest intermediates. ccharvest.py regenerates these in seconds; only the
+# VALIDATED target lists are worth tracking.
+cc_candidates.json
+cc_all.json
+cc_more.json
+cc_sample.json
+cc_wd_candidates.json
+cc_wd_cands.json
+sample_targets.json
+
+# Editing backups
+*.bak
+*.bak2
+*.bak3
+*.bak4
+
+# Run logs
+refresh_run*.log
+refresh_full.log
+validate*.log
