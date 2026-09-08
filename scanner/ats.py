@@ -1,6 +1,8 @@
 """Multi-ATS scanner: pulls live postings straight from company ATS APIs.
 Authoritative open-date fields: greenhouse.first_published, lever.createdAt,
 ashby.publishedAt, smartrecruiters.releasedDate, workable.published_on."""
+import datetime as _dt
+import html as _html
 import json, re, sys, time, urllib.request, urllib.error, concurrent.futures as cf
 from datetime import datetime, timezone
 
@@ -20,6 +22,20 @@ def get(url, timeout=30, tries=3):
             time.sleep(1.2 * (i + 1))
     raise last
 
+def _html2txt(h):
+    """Plain text from an ATS HTML description.
+
+    Unescapes twice on purpose: Greenhouse double-encodes, so a description
+    arrives as "&amp;lt;p&amp;gt;" and one pass leaves live tags behind. Entities
+    left in place hide both pay bands and experience floors from the extractors.
+    """
+    t = _html.unescape(_html.unescape(h or ""))
+    t = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", t)
+    t = re.sub(r"(?s)<[^>]+>", " ", t)
+    t = _html.unescape(t)
+    return re.sub(r"\s+", " ", t).strip()
+
+
 def iso(ts):
     if ts is None: return None
     if isinstance(ts, (int, float)):
@@ -30,14 +46,46 @@ def iso(ts):
     return m.group(1) if m else None
 
 # ---------- per-ATS fetchers -> normalized dicts ----------
+# How far back a description is worth fetching. The gates drop anything older
+# than 14 days anyway; the margin absorbs clock skew and a slow run.
+GH_FRESH_DAYS = 21
+
+
+def _gh_detail(tok, jid):
+    try:
+        d = get(f"https://boards-api.greenhouse.io/v1/boards/{tok}/jobs/{jid}", tries=2)
+    except Exception:
+        return ""
+    return _html2txt(d.get("content", "") or "")
+
+
 def gh(tok):
-    d = get(f"https://boards-api.greenhouse.io/v1/boards/{tok}/jobs?content=true")
-    out = []
-    for j in d.get("jobs", []):
-        out.append(dict(title=j.get("title",""), loc=(j.get("location") or {}).get("name",""),
-            opened=iso(j.get("first_published")), updated=iso(j.get("updated_at")),
-            url=j.get("absolute_url",""), desc=j.get("content","") or "",
-            smin=None, smax=None, ats="greenhouse"))
+    """List first, descriptions only for postings that could survive the gates.
+
+    content=true returns every description on the board - 8.6 MB for Anthropic -
+    and the scan then discards almost all of it on a date check the free list
+    could have answered. Fetching detail per candidate is ~20x fewer bytes, and
+    on a board with nothing new it is a single request.
+    """
+    d = get(f"https://boards-api.greenhouse.io/v1/boards/{tok}/jobs")
+    jobs = d.get("jobs", [])
+    cutoff = (_dt.datetime.now(_dt.timezone.utc)
+              - _dt.timedelta(days=GH_FRESH_DAYS)).strftime("%Y-%m-%d")
+    out, want = [], []
+    for j in jobs:
+        rec = dict(title=j.get("title", ""), loc=(j.get("location") or {}).get("name", ""),
+                   opened=iso(j.get("first_published")), updated=iso(j.get("updated_at")),
+                   url=j.get("absolute_url", ""), desc="",
+                   smin=None, smax=None, ats="greenhouse")
+        out.append(rec)
+        t = rec["title"]
+        if (rec["opened"] or "9999") >= cutoff and t and SWE.search(t) \
+                and not EXCLUDE.search(t) and not DISCIPLINE_BAD.search(t):
+            want.append((rec, j.get("id")))
+    if want:
+        with cf.ThreadPoolExecutor(max_workers=min(8, len(want))) as ex:
+            for (rec, _), body in zip(want, ex.map(lambda x: _gh_detail(tok, x[1]), want)):
+                rec["desc"] = body
     return out
 
 def lever(tok):
@@ -48,7 +96,8 @@ def lever(tok):
         c = j.get("categories") or {}
         out.append(dict(title=j.get("text",""), loc=c.get("location","") or "",
             opened=iso(j.get("createdAt")), updated=iso(j.get("createdAt")),
-            url=j.get("hostedUrl",""), desc=(j.get("descriptionPlain","") or "") + " " +
+            url=j.get("hostedUrl",""), desc=_html2txt(j.get("description","") or "")
+                + " " + (j.get("additionalPlain","") or "") + " " +
                 " ".join((l.get("text","") or "") + " " + str(l.get("content","")) for l in (j.get("lists") or [])),
             smin=None, smax=None, ats="lever"))
     return out
@@ -70,6 +119,19 @@ def ashby(tok):
             remote=bool(j.get("isRemote"))))
     return out
 
+def _smart_detail(tok, pid):
+    """The posting ad. The list endpoint returns no description whatsoever."""
+    try:
+        d = get(f"https://api.smartrecruiters.com/v1/companies/{tok}/postings/{pid}", tries=2)
+    except Exception:
+        return ""
+    secs = (d.get("jobAd") or {}).get("sections") or {}
+    parts = []
+    for k in ("companyDescription", "jobDescription", "qualifications", "additionalInformation"):
+        parts.append(_html2txt(((secs.get(k) or {}).get("text") or "")))
+    return " ".join(p for p in parts if p)
+
+
 def smart(tok):
     out = []
     for off in (0, 100, 200, 300):
@@ -82,9 +144,19 @@ def smart(tok):
                 loc=f"{loc.get('city','')}, {loc.get('region','')}".strip(", "),
                 opened=iso(j.get("releasedDate")), updated=iso(j.get("releasedDate")),
                 url=f"https://jobs.smartrecruiters.com/{tok}/{j.get('id')}", desc="",
-                smin=None, smax=None, ats="smartrecruiters",
+                _pid=j.get("id"), smin=None, smax=None, ats="smartrecruiters",
                 remote=bool(loc.get("remote"))))
         if len(cont) < 100: break
+    # one detail call per plausible title only - a full board would be hundreds
+    want = [j for j in out if j.get("_pid") and (j.get("title") or "").strip()
+            and SWE.search(j["title"]) and not EXCLUDE.search(j["title"])
+            and not DISCIPLINE_BAD.search(j["title"])]
+    if want:
+        with cf.ThreadPoolExecutor(max_workers=min(8, len(want))) as ex:
+            for j, txt in zip(want, ex.map(lambda x: _smart_detail(tok, x["_pid"]), want)):
+                j["desc"] = txt
+    for j in out:
+        j.pop("_pid", None)
     return out
 
 def workable(tok):
@@ -93,7 +165,8 @@ def workable(tok):
     for j in d.get("jobs", []):
         out.append(dict(title=j.get("title",""), loc=f"{j.get('city','')}, {j.get('state','')}".strip(", "),
             opened=iso(j.get("published_on") or j.get("created_at")), updated=iso(j.get("published_on")),
-            url=j.get("url",""), desc=j.get("description","") or "", smin=None, smax=None, ats="workable"))
+            url=j.get("url",""), desc=_html2txt(j.get("description","") or ""),
+            smin=None, smax=None, ats="workable"))
     return out
 
 def _txt(v):
@@ -231,7 +304,9 @@ def scan(name, ats, tok):
         c = classify(j) or {}
         loc = j.get("loc") or ""
         h = dict(j)
-        h.update(tier=tier, floor=floor, stretch=stretch,
+        _req, _pref = openelig.required_years((j.get("desc") or "")[:12000])
+        h.update(tier=tier, floor=_req, floor_pref=_pref, stretch=stretch,
+                 senior_hint=openelig.senior_hints((j.get("desc") or "")[:12000]),
                  frontend=bool(FRONTEND.search(j.get("title") or "")),
                  ai=bool(AIML.search(j.get("title") or "")
                          or AIML.search((j.get("desc") or "")[:3000])),
@@ -251,7 +326,10 @@ def scan(name, ats, tok):
             h["remote_body"] = _geo.remote_in_text(j.get("desc") or "")
         except Exception:
             pass
-        h["desc"] = (h.get("desc") or "")[:1500]
+        # 1,500 was enough for display but not for re-gating: experience floors
+        # sit in a requirements block at the end of a posting, so a --no-scan run
+        # was re-reading a body with the qualifications already cut off.
+        h["desc"] = (h.get("desc") or "")[:12000]
         hits.append(h)
     return dict(company=name, ats=ats, token=tok, total=len(jobs), jobs=hits)
 

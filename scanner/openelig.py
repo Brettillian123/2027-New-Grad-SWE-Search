@@ -24,7 +24,10 @@ PLAIN_TITLE = re.compile(r"^\s*(senior\s+)?(software|backend|back[\s-]end|full[\
                          r"(engineer|developer|programmer)\b", re.I)
 
 SENIOR_TITLE = re.compile(r"(senior|\bsr\.?\b|staff|principal|\blead\b|manager|director|head of|"
-                          r"architect|\bii\b|\biii\b|\biv\b|\bvp\b|distinguished|fellow)", re.I)
+                          r"architect|\bii\b|\biii\b|\biv\b|\bvp\b|distinguished|fellow|"
+                          # a level ABOVE entry: GitLab ships "Intermediate Backend
+                          # Engineer", which states no year floor and so read as unlevelled.
+                          r"intermediate|mid[\s-]?level|mid[\s-]?senior|experienced)", re.I)
 
 # "5+ years", "minimum of 3 years", "3-5 years of experience"
 YEARS = re.compile(r"(\d{1,2})\s*(?:\+|-|\u2013|to)?\s*(\d{1,2})?\s*\+?\s*years?[^.]{0,40}"
@@ -44,6 +47,62 @@ def min_years(body):
     for m in WORD_YEARS.finditer(body or ''):
         vals.append(WORDNUM.get(m.group(1).lower(), 99))
     return min(vals) if vals else None
+
+
+# Wording that makes a figure optional rather than required. Checked in the
+# clause around the match and in the nearest preceding heading, because postings
+# put "Preferred Qualifications" once and then list bare bullets under it.
+PREFERRED_CTX = re.compile(
+    r"(preferred|preferrable|nice[\s-]to[\s-]have|bonus|a plus|"
+    r"plus(?:es)?\b|desired|desirable|ideally|would be great|"
+    r"not required|helpful|advantageous|we'd love|nice if)", re.I)
+
+# "1+ years OR a bachelor's degree" - a degree satisfies it, so it is not a floor
+# for a graduating senior. Deliberately scoped to the enclosing clause.
+DEGREE_ALT = re.compile(r"\bor\b[^.;]{0,90}\b(associate|bachelor|master|b\.?s\.?|"
+                        r"m\.?s\.?|degree|equivalent|coursework)", re.I)
+
+
+def required_years(body):
+    """-> (required_floor, preferred_floor)
+
+    required_floor is the largest number of years the posting actually demands;
+    None when it demands none. preferred_floor is the largest figure that is only
+    wanted, which is reported for context and never gated on.
+    """
+    body = body or ''
+    req, pref = [], []
+    for m in list(YEARS.finditer(body)) + list(WORD_YEARS.finditer(body)):
+        g = m.group(1)
+        try:
+            n = int(g)
+        except ValueError:
+            n = WORDNUM.get(g.lower())
+        if n is None:
+            continue
+        # the clause the figure sits in, plus the heading that governs it
+        clause = body[max(0, m.start() - 160):m.end() + 160]
+        heading = body[max(0, m.start() - 600):m.start()]
+        optional = bool(PREFERRED_CTX.search(clause))
+        if not optional:
+            # a "Preferred/Nice to have" heading closer than any "Required" one
+            hp = max(heading.lower().rfind(w) for w in
+                     ('preferred', 'nice to have', 'bonus', 'a plus', 'desired'))
+            hr = max(heading.lower().rfind(w) for w in
+                     ('required', 'requirement', 'qualification', 'must have',
+                      'what you', 'you bring', 'basic '))
+            optional = hp > hr
+        # A degree only excuses the years when it is an ALTERNATIVE to them
+        # ("1+ years or a bachelor's"). Iambic writes "Master's ... or a
+        # Bachelor's WITH 2+ years", where the degree path still demands the
+        # years, so an additive join before the figure keeps it binding.
+        before = body[max(0, m.start() - 70):m.start()]
+        additive = re.search(r"(bachelor|master|b\.?s\.?|m\.?s\.?|degree)[^.;]{0,40}"
+                             r"\b(with|plus|and)\b[^.;]{0,25}$", before, re.I)
+        if DEGREE_ALT.search(clause) and not additive:
+            continue                     # a degree genuinely satisfies it
+        (pref if optional else req).append(n)
+    return (max(req) if req else None), (max(pref) if pref else None)
 
 
 # a title that names the class outright is trusted over a stray years mention
@@ -187,11 +246,13 @@ def eligibility3(job):
     if SENIOR_TITLE.search(t):
         return None, None, False
 
-    floor = min_years(body)
+    floor, _pref = required_years(body)
     explicit = bool(EXPLICIT_TITLE.search(t))
     if explicit:
         return (ats.classify(job) or {}).get('tier', 'A'), floor, False
-    if floor is not None and floor >= 3:
+    # Brett's rule: anything REQUIRING two years or more is out. Figures that are
+    # only preferred never reach here - required_years puts them aside.
+    if floor is not None and floor >= 2:
         return None, floor, False
     if SENIOR_BODY_STRICT.search(body):
         return None, floor, False
@@ -227,12 +288,46 @@ ROLE_BAD = re.compile(r"(sec[\s-]?ops|\bsoc\b|siem|incident response|detection e
                       r"solutions architect|implementation)", re.I)
 
 
+# Seniority stated without a number. ElevenLabs' GPU-cluster req says "Have run
+# large GPU fleets in production ... or have deep systems experience" and names no
+# figure at all, so min_years sees nothing and the posting reads as unlevelled.
+# This is a FLAG, not a rejection: the same shape of rule, applied as a hard gate,
+# is what previously killed the Torc and Cribl reqs, and a phrase in a "nice to
+# have" list is not a floor. The board shows it and sorts on it; Brett decides.
+IMPLICIT_SENIOR = re.compile(
+    r"(deep\s+\w*\s*(?:experience|expertise|knowledge|understanding)|"
+    r"extensive\s+(?:experience|background)|significant\s+experience|"
+    r"substantial\s+experience|proven\s+track\s+record|"
+    r"demonstrated\s+(?:experience|expertise|ability to lead)|"
+    r"strong\s+background\s+in|seasoned|"
+    r"(?:have|having)\s+(?:run|operated|scaled|managed)\s+[^.]{0,60}"
+    r"(?:in\s+production|at\s+scale|fleets|clusters)|"
+    r"production\s+experience|prior\s+industry\s+experience|"
+    r"expert(?:ise)?\s+in\s+\w+|"
+    r"you(?:'ve| have)\s+(?:built|shipped|owned|operated)\s+[^.]{0,50}"
+    r"(?:at\s+scale|in\s+production))", re.I)
+
+# Below this, there is no posting text worth judging - the fetcher failed, the ATS
+# returns none, or it is a stub. Passing these through as "states no floor" is how
+# 3,300 SmartRecruiters rows reached the board with an empty description.
+MIN_BODY = 400
+
+
+def senior_hints(body):
+    """Distinct implicit-seniority phrases in the posting, for the board to show."""
+    return sorted({m.group(1).lower().strip() for m in IMPLICIT_SENIOR.finditer(body or '')})
+
+
 def eligibility4(job):
     """Final rule: a real software-engineering role, not senior-gated, open to a
     May-2027 graduate applying through an ordinary junior application."""
     t = (job.get('title') or '').strip()
     body = (job.get('desc') or '')[:12000]
     if not t:
+        return None, None, False
+    # No body means no evidence, and no evidence is not evidence of entry level.
+    # An explicitly entry-shaped title still stands on its own.
+    if len(body) < MIN_BODY and not EXPLICIT_TITLE.search(t) and not ENTRY_TITLE.search(t):
         return None, None, False
     if DEVREL.search(t) or CLINICAL.search(t) or ROLE_BAD.search(t):
         return None, None, False

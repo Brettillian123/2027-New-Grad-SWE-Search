@@ -2,7 +2,8 @@
 import json, html, os
 from estpay import parse_range
 
-OUT = r"C:\Users\Brett\OneDrive\Documents\JobSearch\target_board.html"
+OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                   'target_board.html')
 
 F = json.load(open('final.json'))
 STATS = json.load(open('stats.json')) if os.path.exists('stats.json') else {}
@@ -109,6 +110,8 @@ for i, r in enumerate(F, 1):
         date=r.get('opened') or '', t=tier(r),
         url=r.get('url') or '', why=(r.get('why') or '').replace('; ', ' &middot; ')[:180],
         roles=r.get('n_roles', 1), loc=_locchip(r), soft=soft_pay(r),
+        floor=r.get('floor'), fpref=r.get('floor_pref'),
+        hint=(r.get('senior_hint') or [])[:1],
         new48=bool(r.get('new48')),
     ))
 
@@ -146,9 +149,10 @@ FINDINGS = [
      "postings that had shown none."),
     ("05",
      "What the gates cost, and where the board now stands",
-     "Across <b>%s postings</b> from <b>%s boards</b>, 9,702 cleared eligibility. The two-week freshness rule "
-     "removed 7,968 of them &mdash; by far the largest single cut &mdash; and the remote-or-Chicago rule removed "
-     "1,617 more. <b>%d companies</b> survive everything. A dash in the pay column means the employer published "
+     "Across <b>%s eligible postings</b> from <b>%s boards</b>, the two-week freshness rule "
+     "removed %s &mdash; by far the largest single cut. Requiring an actual entry-level req &mdash; no "
+     "title a level above it, no stated floor of two years or more &mdash; removed %s, and the remote-or-Chicago "
+     "rule %s more. <b>%d companies</b> survive everything. A dash in the pay column means the employer published "
      "no band, which is common on Workday and is not the same as paying badly; those rows are kept."),
 ]
 
@@ -157,8 +161,13 @@ n_live = sum(1 for d in data if d['t'] != 'watch')
 n_watch = len(data) - n_live
 FINDINGS[0] = (FINDINGS[0][0], FINDINGS[0][1], FINDINGS[0][2] % ())
 FINDINGS[1] = (FINDINGS[1][0], FINDINGS[1][1] % (), FINDINGS[1][2])
+_fn = STATS.get('funnel', {})
+_g = lambda *keys: format(sum(_fn.get(k, 0) for k in keys), ',')
 FINDINGS[4] = (FINDINGS[4][0], FINDINGS[4][1],
-               FINDINGS[4][2] % (STATS.get('posts', '135,000+'), STATS.get('boards', '2,100+'), len(data)))
+               FINDINGS[4][2] % (STATS.get('posts', '135,000+'), STATS.get('boards', '2,100+'),
+                                 _g('older than 2 weeks'),
+                                 _g('not entry level (title)', 'not entry level (2+ yrs)'),
+                                 _g('not US', 'not remote/Chicago'), len(data)))
 
 CAVEATS = [
     "Several top quant firms screen on GPA, commonly at 3.5. Akuna, Belvedere, Chicago Trading Company, Old Mission, "
@@ -196,6 +205,9 @@ def _top(r):
 top = max((_top(r) for r in F), default=0)
 repl = {
     '__DATA__': json.dumps(data, ensure_ascii=True),
+    '__RUNDATE__': STATS.get('rundate', ''),
+    '__WINDATE__': STATS.get('windate', ''),
+    '__FLOOR__': STATS.get('floor', ''),
     '__FINDINGS__': find_html,
     '__CAVEATS__': cav_html,
     '__NOPROG__': np_html or '<div class="np"><b>None recorded</b><span>No employers were ruled out.</span></div>',

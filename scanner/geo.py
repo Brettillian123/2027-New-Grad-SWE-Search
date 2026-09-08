@@ -76,7 +76,7 @@ REMOTE_BODY = re.compile(
     r"remote\s*\(\s*(us|united states|nationwide|anywhere)|"
     r"work\s+location:\s*remote|workplace\s+flexibility[:\s]*remote|"
     r"location:\s*remote|remote\s+within\s+the\s+(us|united states)|"
-    r"anywhere\s+in\s+the\s+(us|united states)|us[-\s]remote|remote[-\s]us)", re.I)
+    r"anywhere\s+in\s+the\s+(us|united states)|us[-\s]remote\b|remote[-\s]us\b)", re.I)
 
 
 def remote_in_text(text):

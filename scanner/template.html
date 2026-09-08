@@ -220,15 +220,15 @@ footer .mono{font-size:12px}
 
 <header>
   <div class="wrap mast">
-    <div class="eyebrow">Verified 27 Aug 2026 &middot; Brett Anderson &middot; B.S. CS, May 2027</div>
+    <div class="eyebrow">Verified __RUNDATE__ &middot; Brett Anderson &middot; B.S. CS, May 2027</div>
     <h1>2027 New Grad Target Board</h1>
-    <p class="lede">Three hard filters, no exceptions: <b>Chicago or remote</b>, <b>posted within the last two weeks</b>, and <b>no published band below $95k</b>. Everything here was pulled from the employer's own applicant-tracking system, not an aggregator &mdash; dates are their own <span class="mono">first_published</span> field. <b>__NCO__ companies</b> clear all three.</p>
+    <p class="lede">Four hard filters, no exceptions: <b>entry level</b>, <b>Chicago or remote</b>, <b>posted within the last two weeks</b>, and <b>no published band below __FLOOR__</b>. Everything here was pulled from the employer's own applicant-tracking system, not an aggregator &mdash; dates are their own <span class="mono">first_published</span> field. <b>__NCO__ companies</b> clear all four.</p>
     <div class="stats">
       <div class="stat"><div class="v">__NCO__</div><div class="k">companies</div></div>
       <div class="stat"><div class="v">__NCHI__</div><div class="k">hiring in Chicago</div></div>
       <div class="stat"><div class="v">__NREM__</div><div class="k">remote-eligible</div></div>
       <div class="stat"><div class="v">__NAI__</div><div class="k">AI / automation</div></div>
-      <div class="stat"><div class="v">__NWIN__</div><div class="k">opened since Aug 25</div></div>
+      <div class="stat"><div class="v">__NWIN__</div><div class="k">opened since __WINDATE__</div></div>
       <div class="stat"><div class="v mono">__TOPPAY__</div><div class="k">top posted base</div></div>
     </div>
   </div>
@@ -246,7 +246,7 @@ footer .mono{font-size:12px}
       <button class="f" data-f="chi" aria-pressed="false">Chicago</button>
       <button class="f" data-f="rem" aria-pressed="false">Remote</button>
       <button class="f" data-f="ai" aria-pressed="false">AI / automation</button>
-      <button class="f" data-f="window" aria-pressed="false">Opened since Aug 25</button>
+      <button class="f" data-f="window" aria-pressed="false">Opened since __WINDATE__</button>
       <button class="f" data-f="pay" aria-pressed="false">$150k+</button>
       <button class="f" data-f="picked" aria-pressed="false">Selected</button>
       <input type="search" id="q" placeholder="Search company or role" aria-label="Search company or role">
@@ -279,7 +279,7 @@ footer .mono{font-size:12px}
 </main>
 
 <footer class="wrap">
-  <div>Compiled 27 August 2026 by scanning <span class="mono">__NBOARDS__</span> company job boards directly &mdash; Greenhouse, Ashby, Lever, SmartRecruiters, Workable and Workday APIs &mdash; yielding <span class="mono">__NPOST__</span> raw postings, filtered to <span class="mono">__NCLASS__</span> new-grad software roles.</div>
+  <div>Compiled __RUNDATE__ by scanning <span class="mono">__NBOARDS__</span> company job boards directly &mdash; Greenhouse, Ashby, Lever, SmartRecruiters, Workable and Workday APIs &mdash; yielding <span class="mono">__NPOST__</span> raw postings, filtered to <span class="mono">__NCLASS__</span> new-grad software roles.</div>
   <div style="margin-top:6px">Salary figures are the employer's own posted band. A dash means the company did not publish one. Verify every posting on the linked page before applying &mdash; requisitions close without notice.</div>
 </footer>
 
@@ -320,7 +320,10 @@ function card(d){
   if(d.ai)  chips.push('<span class="chip ai">AI / automation</span>');
   if(d.roles > 1) chips.push('<span class="chip">'+d.roles+' open roles</span>');
   if(d.loc) chips.push('<span class="chip">'+esc(d.loc)+'</span>');
-  if(d.soft) chips.push('<span class="chip soft">mid under $95k</span>');
+  if(d.soft) chips.push('<span class="chip soft">mid under __FLOOR__</span>');
+  if(d.floor) chips.push('<span class="chip soft">requires '+d.floor+' yr'+(d.floor>1?'s':'')+'</span>');
+  if(d.fpref) chips.push('<span class="chip soft">'+d.fpref+' yr'+(d.fpref>1?'s':'')+' preferred</span>');
+  if(d.hint && d.hint.length) chips.push('<span class="chip soft">&ldquo;'+esc(d.hint[0])+'&rdquo;</span>');
   const label = d.t==='window' ? 'In window' : (d.t==='live' ? 'Live now' : 'Opens by Sep 20');
   const name = d.url ? '<a href="'+esc(d.url)+'" target="_blank" rel="noopener">'+esc(d.co)+'</a>' : esc(d.co);
   const on = picked.has(d.n);

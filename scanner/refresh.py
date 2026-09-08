@@ -22,8 +22,21 @@ sys.path.insert(0, HERE)
 TODAY = dt.date.today()
 FRESH = TODAY - dt.timedelta(days=14)     # the two-week rule
 NEW48 = TODAY - dt.timedelta(days=2)      # the <48h label
-FLOOR = 95000
+FLOOR = 90000
 MID_TOLERANCE = 0.90
+
+# Entry level means entry level. openelig's SENIOR_TITLE now rejects these at
+# collection time, but re-gating a scan taken before that fix needs the same
+# test here - GitLab's "Intermediate Backend Engineer" states no year floor and
+# so passed as an unlevelled title.
+LEVEL_UP = re.compile(r'\b(intermediate|mid[\s-]?level|mid[\s-]?senior|experienced)\b', re.I)
+MAX_FLOOR = 1   # anything REQUIRING 2+ years is out (preferred figures don't count)
+
+# Seniority asserted without a number ("deep systems experience", "have run large
+# GPU fleets in production"). One such phrase can appear in a nice-to-have on a
+# genuinely open req, so one is shown and kept; two or more is the posting telling
+# you what it wants, and is cut.
+MAX_HINTS = 1
 
 # ATS tokens are lowercase slugs, so company names arrive as "gitlab", "imc".
 CANON = {
@@ -49,12 +62,32 @@ def disp(name):
 
 #   script, full target file, output, is-slow, default ats for tiering
 SCANS = [
-    ('api', 'ats.py',       'rescan_nonwd.json',    'scan_api.json', False, None),
+    ('api', 'ats.py',       'targets_all.json',     'scan_api.json', False, None),
     ('wd',  'wd4.py',       'wd_targets_full.json', 'scan_wd.json',  True,  'workday'),
     ('new', 'sweep_new.py',  None,                  'scan_new.json', True,  None),
 ]
 
 WORKERS = 32   # measured: 8 -> 8.1 req/s, 32 -> 16.0, 64 -> 18.6. 32 is the knee.
+
+
+def stage_data():
+    """Make the tracked data files visible to the scripts that read them.
+
+    Every scanner script runs with cwd=scanner/ and opens its inputs by bare
+    filename, but the repo publishes them under data/. On a fresh clone that
+    means nothing resolves, so copy anything missing across once at startup.
+    Files already in scanner/ are left alone - they are the newer ones.
+    """
+    src = os.path.join(OUT, 'data')
+    if not os.path.isdir(src):
+        return
+    for f in os.listdir(src):
+        if not f.endswith('.json'):
+            continue
+        dst = os.path.join(HERE, f)
+        if not os.path.exists(dst):
+            with open(os.path.join(src, f), 'rb') as a, open(dst, 'wb') as b:
+                b.write(a.read())
 
 
 def run_scans(fast, scan_all):
@@ -112,6 +145,7 @@ def load_postings():
 
 
 def gate(rows, geo, sal):
+    import openelig as _elig
     f = collections.Counter()
     kept = []
     for j in rows:
@@ -122,6 +156,25 @@ def gate(rows, geo, sal):
             continue
         if op < FRESH.isoformat():
             f['older than 2 weeks'] += 1
+            continue
+        if LEVEL_UP.search(j.get('title') or ''):
+            f['not entry level (title)'] += 1
+            continue
+        # recompute from the stored body: the posting text travels with the scan,
+        # so a rule change re-gates the last run instead of needing a refetch
+        body = j.get('desc') or ''
+        if body:
+            req, pref = _elig.required_years(body)
+            j['floor'], j['floor_pref'] = req, pref
+            # recompute too: remote_body was recorded with a regex whose last two
+            # alternatives could never fire (literal backspaces for word boundaries)
+            if not j.get('remote_body'):
+                j['remote_body'] = geo.remote_in_text(body)
+        if (j.get('floor') or 0) > MAX_FLOOR:
+            f['requires %d+ yrs' % (MAX_FLOOR + 1)] += 1
+            continue
+        if len(j.get('senior_hint') or []) > MAX_HINTS:
+            f['not entry level (implied)'] += 1
             continue
         g = geo.geo(j.get('loc') or '')
         if g['foreign_only'] or not g['us']:
@@ -183,6 +236,8 @@ def build_board(kept):
             smin=(top['smin'] if top else None), smax=(top['smax'] if top else None),
             opened=max(x.get('opened') or '' for x in js),
             url=b.get('url') or '', loc=b.get('loc') or '',
+            floor=b.get('floor'), floor_pref=b.get('floor_pref'),
+            senior_hint=sorted({h for x in js for h in (x.get('senior_hint') or [])})[:2],
             status='LIVE', in_window=True, n_roles=len(js),
             why='; '.join(sorted({x['title'] for x in js})[:3])[:180], est_base=''))
 
@@ -210,6 +265,7 @@ def main():
     print('  <48h cutoff      %s' % NEW48.isoformat())
     print()
 
+    stage_data()
     if not a.no_scan:
         run_scans(a.fast, a.all)
         print()
@@ -221,7 +277,9 @@ def main():
     kept, f = gate(rows, geo, sal)
 
     print('FUNNEL')
-    for k in ('eligible', 'no date', 'older than 2 weeks', 'not US',
+    for k in ('eligible', 'no date', 'older than 2 weeks',
+              'not entry level (title)', 'requires 2+ yrs',
+              'not entry level (implied)', 'not US',
               'not remote/Chicago', 'band under floor', 'midpoint too low', 'KEPT'):
         if f[k]:
             print('  %-20s %6d' % (k, f[k]))
@@ -229,7 +287,13 @@ def main():
     board = build_board(kept)
     json.dump(board, open(os.path.join(HERE, 'final.json'), 'w'), indent=1)
     json.dump({'boards': '3,680', 'posts': format(len(rows), ','),
-               'classified': len(kept)},
+               'classified': len(kept),
+               # the page states its own filters, so they travel with the run
+               # instead of being retyped into the template every time
+               'rundate': TODAY.strftime('%-d %B %Y') if os.name != 'nt'
+                          else TODAY.strftime('%#d %B %Y'),
+               'windate': FRESH.strftime('%#d %b' if os.name == 'nt' else '%-d %b'),
+               'floor': '$%dk' % (FLOOR // 1000), 'funnel': dict(f)},
               open(os.path.join(HERE, 'stats.json'), 'w'))
 
     # what is genuinely new since the last run
